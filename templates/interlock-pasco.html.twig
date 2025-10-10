@@ -1,0 +1,587 @@
+{% extends 'layouts/landing.html.twig' %}
+
+{% block content %}
+  <!-- ===== HERO AREA STARTS ======= -->
+  <div class="hero1-section-area about-bg-area">
+    <img src="/img/bg/header-img1.jpg" alt="" class="header-img1" />
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7 m-auto">
+          <div class="hero-heading-area heading1 text-center">
+            <h1>Interlock Pasco</h1>
+            <a href="index" class="backline">Home <i class="fa-solid fa-angle-right"></i> <span>Interlocks</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ===== HERO AREA ENDS ======= -->
+
+  <!-- ===== INTERLOCKS AREA STARTS ======= -->
+  <div class="service-leftside-area sp8">
+    <div class="container">
+      <div class="row">
+        <!-- Main display -->
+        <div class="col-lg-8">
+          <div class="service-rightside-area heading2 rightsidebar">
+
+            <!-- Main image -->
+            <div class="img1">
+              <img id="shape-image" src="/img/interlocks/rectangular-1.jpg" alt="Interlock preview" />
+            </div>
+            <div class="space24"></div>
+
+            <!-- Title + Description -->
+            <h3 id="shape-title">Rectangular</h3>
+            <p id="shape-desc">
+              Classic rectangular interlock pavers ideal for driveways and walkways. Durable, clean lines, and simple patterns that fit most sites.
+            </p>
+
+            <!-- Small gallery for the current shape -->
+            <div class="row g-3" id="shape-gallery">
+              <div class="col-4">
+                <img class="shape-thumb active" src="/img/interlocks/rectangular-1.jpg" alt="Rectangular 1" data-full="/img/interlocks/rectangular-1.jpg">
+              </div>
+              <div class="col-4">
+                <img class="shape-thumb" src="/img/interlocks/rectangular-2.jpg" alt="Rectangular 2" data-full="/img/interlocks/rectangular-2.jpg">
+              </div>
+              <div class="col-4">
+                <img class="shape-thumb" src="/img/interlocks/rectangular-3.jpg" alt="Rectangular 3" data-full="/img/interlocks/rectangular-3.jpg">
+              </div>
+            </div>
+
+            <div class="space32"></div>
+
+            <!-- ========= Options: Sizes + Colors ========= -->
+            <div class="shape-options">
+              <div class="row g-4 align-items-start">
+                <!-- Sizes -->
+                <div class="col-lg-7">
+                  <h5 class="opt-title">Available Size’s :</h5>
+                  <div class="sizes-card">
+                    <table class="sizes-table" id="shape-sizes"><!-- injected by JS --></table>
+                  </div>
+                </div>
+
+                <!-- Colors -->
+                <div class="col-lg-5">
+                  <h5 class="opt-title">Available Colors :</h5>
+                  <div class="colors-wrap" id="shape-colors"><!-- injected by JS --></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="space32"></div>
+
+            <!-- Optional FAQs -->
+            <div class="faq-auhtor-area1">
+              <div class="accordion accordion-flush active" id="accordionFlushExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="true" aria-controls="flush-collapseOne">Which interlock shape is best for driveways?</button></h2>
+                  <div id="flush-collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                      Rectangular and Classico are popular for driveways due to tight joints, load distribution, and easy laying patterns.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="space20"></div>
+
+                <div class="accordion-item">
+                  <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">Do you provide installation guidance?</button></h2>
+                  <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                      Yes. We can advise on base preparation, sand bedding, pattern selection, and joint stabilization for each shape.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="space20"></div>
+
+                <div class="accordion-item">
+                  <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">Do the shapes come in different colors/thickness?</button></h2>
+                  <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                      Absolutely. Most shapes are available in multiple colors and thickness options to suit patios, paths, and driveways.
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Sidebar shape picker -->
+        <div class="col-lg-4">
+          <div class="service-leftside">
+            <div class="service-author-list">
+              <h3>Shapes</h3>
+              <ul id="shape-picker">
+                <li><a href="#" data-shape="rectangular" class="active">Rectangular <i class="fa-solid fa-arrow-right"></i></a></li>
+                <li><a href="#" data-shape="square">Square <i class="fa-solid fa-arrow-right"></i></a></li>
+                <li><a href="#" data-shape="hexagon">Hexagon <i class="fa-solid fa-arrow-right"></i></a></li>
+                <li><a href="#" data-shape="cubes">Cubes <i class="fa-solid fa-arrow-right"></i></a></li>
+                <li><a href="#" data-shape="diamond">Diamond <i class="fa-solid fa-arrow-right"></i></a></li>
+                <li><a href="#" data-shape="octa">Octa <i class="fa-solid fa-arrow-right"></i></a></li>
+                <li><a href="#" data-shape="polygonal">Polygonal <i class="fa-solid fa-arrow-right"></i></a></li>
+                <li><a href="#" data-shape="bishop">Bishop <i class="fa-solid fa-arrow-right"></i></a></li>
+                <li><a href="#" data-shape="rhombus">Rhombus <i class="fa-solid fa-arrow-right"></i></a></li>
+                <li><a href="#" data-shape="classico">Classico <i class="fa-solid fa-arrow-right"></i></a></li>
+              </ul>
+            </div>
+
+            <div class="helping-area">
+              <h3>Need Help?<br class="d-lg-block d-none" /> Talk to Us</h3>
+              <div class="btn-area">
+                <a href="tel:+917052101786" class="header-btn1"><i class="fa-solid fa-phone-volume"></i> +91 705 2101 786</a>
+              </div>
+            </div>
+
+            <div class="download-broucher">
+              <h3>Download Brochure</h3>
+              <p>Get specs, color options, and laying patterns for all interlock shapes.</p>
+              <div class="btn-area">
+                <a href="#" class="header-btn1"><img src="/img/icons/download1.svg" alt="" /> PDF Download</a>
+                <a href="#" class="header-btn2"><img src="/img/icons/download1.svg" alt="" /> DOC Download</a>
+              </div>
+            </div>
+
+            <div class="social-icons">
+              <h3>Follow Us</h3>
+              <ul>
+                <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-pinterest-p"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- ===== INTERLOCKS AREA ENDS ======= -->
+
+  <!-- ===== RELATED AREA STARTS ======= -->
+  <div class="service1-section-area leftside sp2">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 m-auto">
+          <div class="service-header-area heading2 text-center">
+            <h2 class="tg-element-title">Explore More Styles</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <!-- Three quick previews; you can add more tiles if you want -->
+        <div class="col-lg-4 col-md-6">
+          <div class="service-auhtor-boxarea">
+            <div class="img1"><img src="/img/interlocks/hexagon-1.jpg" alt="Hexagon" /></div>
+            <div class="content-area">
+              <h3>01</h3>
+              <a href="#" data-shape="hexagon" class="shape-link">Hexagon</a>
+              <p>Bold honeycomb geometry for modern landscapes.</p>
+              <a href="#" data-shape="hexagon" class="readmore shape-link">Preview <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="service-auhtor-boxarea">
+            <div class="img1"><img src="/img/interlocks/rhombus-1.jpg" alt="Rhombus" /></div>
+            <div class="content-area">
+              <h3>02</h3>
+              <a href="#" data-shape="rhombus" class="shape-link">Rhombus</a>
+              <p>Dynamic angles for striking, tessellated layouts.</p>
+              <a href="#" data-shape="rhombus" class="readmore shape-link">Preview <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="service-auhtor-boxarea">
+            <div class="img1"><img src="/img/interlocks/classico-1.jpg" alt="Classico" /></div>
+            <div class="content-area">
+              <h3>03</h3>
+              <a href="#" data-shape="classico" class="shape-link">Classico</a>
+              <p>Rounded edges for a timeless, cobblestone vibe.</p>
+              <a href="#" data-shape="classico" class="readmore shape-link">Preview <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- ===== RELATED AREA ENDS ======= -->
+
+  <!-- ========= Small UI styles (existing + new) ========= -->
+  <style>
+    #shape-picker a.active { font-weight: 700; }
+    .shape-thumb { width: 100%; cursor: pointer; border: 2px solid transparent; border-radius: 8px; }
+    .shape-thumb.active { border-color: #111; }
+
+    /* Make main image consistent height; tweak if you want */
+    .img1, #shape-image {
+      height: 420px;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    /* —— Options ——————————————————————————— */
+    .shape-options .opt-title{
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .sizes-card{
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(0,0,0,.05);
+      border: 1px solid rgba(0,0,0,.06);
+    }
+    .sizes-table{
+      width: 100%;
+      border-collapse: collapse;
+      font-weight: 600;
+    }
+    .sizes-table thead th{
+      background: #d62828;
+      color: #fff;
+      padding: 10px 12px;
+      text-align: center;
+      font-weight: 800;
+      font-size: 14px;
+    }
+    .sizes-table tbody td{
+      padding: 10px 12px;
+      border-top: 1px solid rgba(0,0,0,.08);
+      text-align: center;
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .sizes-table tbody tr:nth-child(even){
+      background: #fafafa;
+    }
+    .sizes-table .sub{
+      font-weight: 800;
+    }
+
+    .colors-wrap{
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 12px 16px;
+    }
+    @media (min-width: 576px){
+      .colors-wrap{ grid-template-columns: repeat(4, minmax(0,1fr)); }
+    }
+    .color-chip{
+      display: grid;
+      grid-template-rows: 32px auto;
+      align-items: center;
+      justify-items: center;
+      gap: 6px;
+    }
+    .color-chip .swatch{
+      width: 58px; height: 24px;
+      border-radius: 12px;
+      border: 1px solid rgba(0,0,0,.12);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.35);
+    }
+    .color-chip .label{
+      font-size: 12px;
+      font-weight: 800;
+      color: #6c757d;
+      text-transform: uppercase;
+      letter-spacing: .3px;
+      text-align: center;
+    }
+    .color-chip.is-active .swatch{
+      outline: 2px solid #111;
+      outline-offset: 2px;
+      border-color: #111;
+    }
+  </style>
+
+  <!-- ========= Shape switching + sizes/colors rendering ========= -->
+  <script>
+  (function () {
+    // Shared colors palette (can be overridden per shape)
+    const BASE_COLORS = [
+      {name:'Red',       hex:'#e31837'},
+      {name:'Dark Grey', hex:'#5a5a5a'},
+      {name:'Grey',      hex:'#bdbdbd'},
+      {name:'Black',     hex:'#000000'},
+      {name:'Yellow',    hex:'#f2c427'},
+      {name:'Tan',       hex:'#c7ac84'},
+      {name:'Orange',    hex:'#f39b14'},
+      {name:'White',     hex:'#ffffff', border:'#d9d9d9'},
+      {name:'Beige',     hex:'#e9dcc7'},
+      {name:'Brown',     hex:'#8b5a2b'}
+    ];
+
+    // Typical size table (you can override per shape)
+    const STANDARD_SIZES = [
+      { size:'60 x 30', thick:['6 CM'] },
+      { size:'40 x 40', thick:['6 CM'] },
+      { size:'30 x 30', thick:['6 CM'] },
+      { size:'40 x 20', thick:['6 CM'] },
+      { size:'20 x 20', thick:['6 CM','8 CM'] },
+      { size:'15 x 15', thick:['6 CM'] },
+      { size:'10 x 20', thick:['6 CM','8 CM'] },
+      { size:'10 x 10', thick:['6 CM'] },
+    ];
+
+    // Shapes database: title/desc + gallery + sizes + colors
+    const SHAPES = {
+      rectangular: {
+        title: 'Rectangular',
+        desc: 'Classic rectangular interlock pavers ideal for driveways and walkways. Durable, clean lines, and simple patterns.',
+        images: [
+          '/img/interlocks/rectangle-1.jpg',
+          '/img/interlocks/rectangle-2.jpg',
+          '/img/interlocks/rectangle-3.jpg'
+        ],
+        sizes: STANDARD_SIZES,
+        colors: BASE_COLORS
+      },
+      square: {
+        title: 'Square',
+        desc: 'Square pavers for tight grids and contemporary looks. Great for patios and courtyards.',
+        images: [
+          '/img/interlocks/square-1.jpg',
+          '/img/interlocks/square-2.jpg',
+          '/img/interlocks/square-3.jpg'
+        ],
+        sizes: [
+          { size:'30 x 30', thick:['6 CM','8 CM'] },
+          { size:'40 x 40', thick:['6 CM'] },
+          { size:'50 x 50', thick:['6 CM'] }
+        ],
+        colors: BASE_COLORS
+      },
+      hexagon: {
+        title: 'Hexagon',
+        desc: 'Bold honeycomb geometry for modern, eye-catching exteriors. Strong visual rhythm and traction.',
+        images: [
+          '/img/interlocks/hexagon-1.jpg',
+          '/img/interlocks/hexagon-2.jpg',
+          '/img/interlocks/hexagon-3.jpg'
+        ],
+        sizes: [
+          { size:'40 x 40', thick:['6 CM'] },
+          { size:'30 x 30', thick:['6 CM'] }
+        ],
+        colors: BASE_COLORS
+      },
+      cubes: {
+        title: 'Cubes',
+        desc: 'Stackable block/cube style for robust, modular looks and edge details.',
+        images: [
+          '/img/interlocks/cubes-1.jpg',
+          '/img/interlocks/cubes-2.jpg',
+          '/img/interlocks/cubes-3.jpg'
+        ],
+        sizes: [
+          { size:'10 x 10', thick:['6 CM','8 CM'] },
+          { size:'15 x 15', thick:['6 CM'] }
+        ],
+        colors: BASE_COLORS
+      },
+      diamond: {
+        title: 'Diamond',
+        desc: 'Angular diamond modules to create dynamic, repeating patterns.',
+        images: [
+          '/img/interlocks/diamond-1.jpg',
+          '/img/interlocks/diamond-2.jpg',
+          '/img/interlocks/diamond-3.jpg'
+        ],
+        sizes: [
+          { size:'30 x 30', thick:['6 CM'] },
+          { size:'20 x 20', thick:['6 CM'] }
+        ],
+        colors: BASE_COLORS
+      },
+      octa: {
+        title: 'Octa',
+        desc: 'Octagonal units that interlock for decorative and load-bearing surfaces.',
+        images: [
+          '/img/interlocks/octa-1.jpg',
+          '/img/interlocks/octa-2.jpg',
+          '/img/interlocks/octa-3.jpg'
+        ],
+        sizes: [
+          { size:'40 x 40 (octa)', thick:['6 CM'] },
+          { size:'30 x 30 (octa)', thick:['6 CM'] }
+        ],
+        colors: BASE_COLORS
+      },
+      polygonal: {
+        title: 'Polygonal',
+        desc: 'Multi-sided polygonal pieces to create random or ordered tessellations.',
+        images: [
+          '/img/interlocks/polygonal-1.jpg',
+          '/img/interlocks/polygonal-2.jpg',
+          '/img/interlocks/polygonal-3.jpg'
+        ],
+        sizes: [
+          { size:'Mixed set', thick:['6 CM'] },
+          { size:'Custom', thick:['6 CM','8 CM'] }
+        ],
+        colors: BASE_COLORS
+      },
+      bishop: {
+        title: 'Bishop',
+        desc: 'Beveled block reminiscent of a chess bishop — adds depth and shadow.',
+        images: [
+          '/img/interlocks/bishop-1.jpg',
+          '/img/interlocks/bishop-2.jpg',
+          '/img/interlocks/bishop-3.jpg'
+        ],
+        sizes: [
+          { size:'20 x 20', thick:['6 CM','8 CM'] },
+          { size:'15 x 15', thick:['6 CM'] }
+        ],
+        colors: BASE_COLORS
+      },
+      rhombus: {
+        title: 'Rhombus',
+        desc: 'Rhombic tiles for eye-catching 3D illusions and zig-zag patterns.',
+        images: [
+          '/img/interlocks/rhombus-1.jpg',
+          '/img/interlocks/rhombus-2.jpg',
+          '/img/interlocks/rhombus-3.jpg'
+        ],
+        sizes: [
+          { size:'30 x 30 (rhombus)', thick:['6 CM'] },
+          { size:'20 x 20 (rhombus)', thick:['6 CM'] }
+        ],
+        colors: BASE_COLORS
+      },
+      classico: {
+        title: 'Classico',
+        desc: 'Timeless stone look with rounded edges and soft curves. Ideal for classic landscapes and garden paths.',
+        images: [
+          '/img/interlocks/classico-1.jpg',
+          '/img/interlocks/classico-2.jpg',
+          '/img/interlocks/classico-3.jpg'
+        ],
+        sizes: [
+          { size:'20 x 10', thick:['6 CM','8 CM'] },
+          { size:'20 x 20', thick:['6 CM'] },
+          { size:'10 x 10', thick:['6 CM'] }
+        ],
+        colors: BASE_COLORS
+      }
+    };
+
+    const shapeImage = document.getElementById('shape-image');
+    const shapeTitle = document.getElementById('shape-title');
+    const shapeDesc  = document.getElementById('shape-desc');
+    const gallery    = document.getElementById('shape-gallery');
+    const sizeTbl    = document.getElementById('shape-sizes');
+    const colorBox   = document.getElementById('shape-colors');
+    const picker     = document.getElementById('shape-picker');
+
+    function renderGallery(imgs) {
+      gallery.innerHTML = imgs.map((src, i) => `
+        <div class="col-4">
+          <img class="shape-thumb ${i === 0 ? 'active' : ''}" src="${src}" alt="thumb ${i+1}" data-full="${src}">
+        </div>
+      `).join('');
+      bindThumbs();
+    }
+
+    function bindThumbs() {
+      gallery.querySelectorAll('.shape-thumb').forEach(img => {
+        img.addEventListener('click', () => {
+          gallery.querySelectorAll('.shape-thumb').forEach(t => t.classList.remove('active'));
+          img.classList.add('active');
+          shapeImage.src = img.dataset.full;
+        });
+      });
+    }
+
+    function renderSizes(rows) {
+      if (!rows || !rows.length) { sizeTbl.innerHTML = ''; return; }
+      const head = `
+        <thead>
+          <tr>
+            <th class="sub">Length x Width<br>(CM)</th>
+            <th class="sub">Thickness<br>(CM)</th>
+          </tr>
+        </thead>`;
+      const body = `
+        <tbody>
+          ${rows.map(r => `
+            <tr>
+              <td>${r.size}</td>
+              <td>${r.thick.join(' &nbsp; | &nbsp; ')}</td>
+            </tr>
+          `).join('')}
+        </tbody>`;
+      sizeTbl.innerHTML = head + body;
+    }
+
+    function renderColors(colors) {
+      if (!colors || !colors.length) { colorBox.innerHTML = ''; return; }
+      colorBox.innerHTML = colors.map(c => `
+        <div class="color-chip" title="${c.name}">
+          <div class="swatch" style="background:${c.hex}; ${c.border ? `border-color:${c.border}` : ''}"></div>
+          <div class="label">${c.name}</div>
+        </div>
+      `).join('');
+      // optional selectable highlight
+      colorBox.querySelectorAll('.color-chip').forEach(chip => {
+        chip.addEventListener('click', () => {
+          colorBox.querySelectorAll('.color-chip').forEach(x => x.classList.remove('is-active'));
+          chip.classList.add('is-active');
+        });
+      });
+    }
+
+    function loadShape(key) {
+      const s = SHAPES[key];
+      if (!s) return;
+      shapeTitle.textContent = s.title;
+      shapeDesc.textContent  = s.desc;
+      shapeImage.src         = s.images[0];
+      renderGallery(s.images);
+      renderSizes(s.sizes);
+      renderColors(s.colors);
+      // Highlight active in sidebar
+      if (picker) {
+        picker.querySelectorAll('a').forEach(a => a.classList.toggle('active', a.dataset.shape === key));
+      }
+    }
+
+    // Sidebar clicks
+    if (picker) {
+      picker.addEventListener('click', (e) => {
+        const a = e.target.closest('a[data-shape]');
+        if (!a) return;
+        e.preventDefault();
+        loadShape(a.dataset.shape);
+      });
+    }
+
+    // “Explore More Styles” tiles also switch the main section
+    document.querySelectorAll('.shape-link').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const shape = a.getAttribute('data-shape');
+        if (!shape) return;
+        e.preventDefault();
+        loadShape(shape);
+        window.scrollTo({ top: document.querySelector('.service-rightside-area').offsetTop - 100, behavior: 'smooth' });
+      });
+    });
+
+    // Initial load
+    loadShape('rectangular');
+  })();
+  </script>
+{% endblock %}

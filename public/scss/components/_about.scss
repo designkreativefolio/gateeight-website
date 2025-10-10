@@ -1,0 +1,204 @@
+@use '../utils' as *;
+
+/*============= ABOUT CSS AREA ===============*/
+.about1-section-area {
+    position: relative;
+    z-index: 1;
+    .about-images-area {
+        position: relative;
+        .img1 {
+            img {
+                width: 100%;
+                height: 370px;
+                object-fit: cover;
+                border-radius: 4px;
+                @media #{$md} {
+                    height: 100%;
+                }
+                @media #{$xs} {
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+        }
+        .img2 {
+            position: relative;
+            left: 44%;
+            margin-top: -79px;
+            @media #{$md} {
+                margin-top: -105px;
+            }
+            @media #{$xs} {
+                margin-top: 30px;
+                left: 0;
+            }
+            img {
+                width: 362px;
+                height: 250px;
+                object-fit: cover;
+                border-radius: 4px;
+                @media #{$md} {
+                   height: 270px;
+                   width: 385px;
+                }
+                @media #{$xs} {
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+        }
+        .conter-area {
+            background: var(--ztc-text-text-2);
+            display: inline-block;
+            text-align: center;
+            padding: 40px 35px;
+            border-radius: 4px;
+            position: absolute; 
+            bottom: 0;
+            width: 267px;
+            @media #{$md} {
+                width: 290px;
+            }
+            @media #{$xs} {
+                width: 100%;
+                height: 100%;
+                position: relative;
+                margin-top: 30px;
+            }
+            h3 {
+                font-family: var(--ztc-family-font1);
+                font-size: var(--ztc-font-size-font-s44);
+                line-height: var(--ztc-font-size-font-s44);
+                font-weight: var(--ztc-weight-bold);
+                color: var(--ztc-text-text-1);
+                margin-bottom: 20px;
+            }
+            p {
+                font-family: var(--ztc-family-font1);
+                font-size: var(--ztc-font-size-font-s16);
+                line-height: 16px;
+                color: var(--ztc-text-text-1);
+                opacity: 0.8;
+            }
+        }
+    }
+    .about-header-area {
+        padding: 0 0 0 80px;
+        @media #{$xs} {
+            margin-top: 30px;
+            padding: 0;
+        }
+        @media #{$md} {
+            margin-top: 30px;
+            padding: 0;
+        }
+
+        ul {
+            li {
+                font-family: var(--ztc-family-font1);
+                font-size: var(--ztc-font-size-font-s18);
+                font-weight: var(--ztc-weight-semibold);
+                color: var(--ztc-text-text-3);
+                line-height: var(--ztc-font-size-font-s18);
+                margin-top: 16px;
+                display: flex;
+                img {
+                    margin: 0 8px 0 0;
+                }
+            }
+        }
+        .btn-area {
+            margin-top: 32px;
+        }
+    }
+}
+
+// about-innerpages //
+.hero1-section-area.about-bg-area {
+    position: relative;
+    padding: 250px 0 130px !important;
+    @media #{$xs} {
+        padding: 150px 0 100px !important;
+    }
+    .header-img1 {
+        width: 100% !important;
+    }
+    .hero-heading-area {
+        h1 {
+            margin-bottom: 0;
+        }
+        .backline {
+            font-family: var(--ztc-family-font1);
+            font-size: var(--ztc-font-size-font-s18);
+            line-height: var(--ztc-font-size-font-s18);
+            font-weight: var(--ztc-weight-medium);
+            color: var(--ztc-text-text-1);
+            transition: all .4s;
+            display: inline-block;
+            opacity: 90%;
+            margin-top: 16px;
+            span {
+                font-weight: var(--ztc-weight-bold);
+                line-height: var(--ztc-font-size-font-s24);
+            }
+            i {
+                margin: 0 4px;
+            }
+        }
+    }
+}
+
+.aboutpage-inner {
+    background: var(--ztc-bg-bg-1) !important;
+    position: relative;
+    .about3-header-area {
+        .misson-text {
+            p {
+                font-weight: var(--ztc-weight-bold);
+                color: var(--ztc-text-text-3);
+            }
+            ul {
+                li {
+                    font-weight: var(--ztc-weight-semibold);
+                    color: var(--ztc-text-text-3);
+                }
+            }
+        }
+    }
+    .about-images-area {
+        .about-footer-bottom {
+            background: var(--ztc-text-text-2) !important;
+        }
+    }
+}
+
+
+.about-innerpage {
+    .about-images-area {
+        .img1 {
+            &::after {
+                background: var(--ztc-text-text-2);
+            }
+        }
+    }
+    .about-header-area {
+        .progress_bar_item {
+            .item_label {
+                color: var(--ztc-text-text-3);
+                font-weight: var(--ztc-weight-bold);
+            }
+            .item-value {
+                color: var(--ztc-text-text-3);
+            }
+            .item-bar {
+                .progress {
+                    background: var(--ztc-text-text-3);
+                }
+            }
+        }
+        .btn-area {
+            margin-top: 32px;
+        }
+    }
+}
+/*============= ABOUT CSS AREA ENDS ===============*/

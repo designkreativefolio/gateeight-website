@@ -1,0 +1,157 @@
+@use '../utils' as *;
+
+/*============= SERVICE CSS AREA ===============*/
+.service1-section-area {
+    position: relative;
+    z-index: 1;
+    background: var(--ztc-bg-bg-1);
+
+    .service-header-area {
+        margin-bottom: 60px;
+    }
+
+    .service-auhtor-boxarea {
+        position: relative;
+        z-index: 1;
+        transition: all .4s;
+        background: var(--ztc-text-text-1);
+        border-radius: 4px;
+        margin-bottom: 30px;
+        &:hover {
+            .img1 {
+                &::after {
+                    height: 100%;
+                    transition: all .4s;
+                }
+                img {
+                    transform: scale(1.1) rotate(-4deg);
+                    transition: all .4s;
+                }
+            }
+            .content-area {
+                &::after {
+                    height: 100%;
+                    transition: all .4s;
+                }
+                a {
+                    color: var(--ztc-text-text-1);
+                    transition: all .4s;
+                }
+                 p{
+                    color: var(--ztc-text-text-1);
+                    transition: all .4s;
+                    opacity: 0.8;
+                 }
+                 .readmore {
+                    color: var(--ztc-text-text-1);
+                    transition: all .4s;
+                 }
+                h3 {
+                    background: var(--ztc-text-text-1);
+                    transition: all .4s;
+                    color: var(--ztc-text-text-3);
+                }
+            }
+        }
+        .img1 {
+            height: 100%;
+            width: 100%;
+            transition: all .4s ease-in-out;
+            overflow: hidden;
+            border-radius: 4px 4px 0 0;
+            position: relative;
+            z-index: 1;
+            &::after {
+                position: absolute;
+                content: "";
+                height: 0;
+                width: 100%;
+                transition: all .4s;
+                background: var(--ztc-text-text-2);
+                opacity: 0.5;
+                left: 0;
+                top: 0;
+            }
+            img {
+                height: 100%;
+                width: 100%;
+                border-radius: 4px 4px 0 0;
+                transition: all .4s;
+            }
+        }
+        .content-area {
+            padding: 64px 38px 32px 38px;
+            text-align: center;
+            position: relative;
+            transition: all .4s;
+            z-index: 1;
+            @media #{$xs} {
+                padding: 64px 32px 32px 32px;
+            }
+            &::after {
+                position: absolute;
+                content: "";
+                height: 0;
+                width: 100%;
+                left: 0;
+                bottom: 0;
+                transition: all .4s;
+                background: var(--ztc-text-text-2);
+                z-index: -1;
+                border-radius: 0 0 4px 4px;
+            }
+            h3 {
+                font-size: var(--ztc-font-size-font-s24);
+                font-family: var(--ztc-family-font1);
+                color: var(--ztc-text-text-1);
+                font-weight: var(--ztc-weight-bold);
+                height: 80px;
+                width: 80px;
+                text-align: center;
+                line-height: 80px;
+                background: var(--ztc-text-text-3);
+                border-radius: 50%;
+                transition: all .4s;
+                margin: 0 auto;
+                margin-top: -100px;
+                margin-bottom: 24px;
+                position: relative;
+                z-index: 2;
+            }
+            a {
+                font-family: var(--ztc-family-font1);
+                font-size: var(--ztc-font-size-font-s24);
+                line-height: var(--ztc-font-size-font-s24);
+                display: inline-block;
+                color: var(--ztc-text-text-3);
+                font-weight: var(--ztc-weight-bold);
+                margin-bottom: 16px;
+                transition: all .4s;
+            }
+             p {
+                font-family: var(--ztc-family-font1);
+                font-size: var(--ztc-font-size-font-s18);
+                line-height: var(--ztc-font-size-font-s26);
+                color: var(--ztc-text-text-4);
+                font-weight: var(--ztc-weight-medium);
+                transition: all .4s;
+             }
+             a.readmore {
+                font-family: var(--ztc-family-font1);
+                font-size: var(--ztc-font-size-font-s16);
+                line-height: var(--ztc-font-size-font-s16);
+                color: var(--ztc-text-text-3);
+                display: inline-block;
+                margin-bottom: 0;
+                margin-top: 24px;font-weight: var(--ztc-weight-bold);
+                transition: all .4s;
+                i {
+                    margin-left: 4px;
+                    transform: rotate(-45deg);
+                }
+             }
+        }
+    }
+}
+
+/*============= SERVICE CSS AREA ENDS===============*/

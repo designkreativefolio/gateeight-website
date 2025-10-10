@@ -1,0 +1,168 @@
+{% extends 'layouts/landing.html.twig' %}
+
+{% block content %}
+<!-- ===== HERO AREA START ===== -->
+<div class="hero1-section-area about-bg-area">
+  <img src="/img/bg/header-img1.png" alt="" class="header-img1" />
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-7 m-auto">
+        <div class="hero-heading-area heading1 text-center">
+          <h1>Granite Tiles</h1>
+          <a href="index" class="backline">
+            Home <i class="fa-solid fa-angle-right"></i> Products
+            <i class="fa-solid fa-angle-right"></i> <span>Granite Tiles</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===== HERO AREA END ===== -->
+
+<!-- ===== PRODUCT AREA START ===== -->
+<div class="service-leftside-area sp8">
+  <div class="container">
+    <div class="row">
+      <!-- ==== MAIN PRODUCT SECTION ==== -->
+      <div class="col-lg-8">
+        <div class="service-rightside-area heading2">
+          <!-- Gallery -->
+          <div class="product-gallery">
+            <div class="main-image text-center">
+              <img id="mainProductImage" src="/img/all-images/granite1.jpg" alt="Granite Tile" class="img-fluid rounded shadow" />
+            </div>
+            <div class="thumbnail-gallery d-flex justify-content-center mt-3">
+              <img src="/img/all-images/granite1.jpg" class="thumb active" onclick="changeImage(this)" alt="">
+              <img src="/img/all-images/granite2.jpg" class="thumb" onclick="changeImage(this)" alt="">
+              <img src="/img/all-images/granite3.jpg" class="thumb" onclick="changeImage(this)" alt="">
+              <img src="/img/all-images/granite4.jpg" class="thumb" onclick="changeImage(this)" alt="">
+            </div>
+          </div>
+
+          <div class="space32"></div>
+
+          <!-- Description -->
+          <h3>Premium Granite Tiles</h3>
+          <p>
+            Our granite tiles are engineered for durability and elegance. Perfect for driveways, pathways, and modern interiors, 
+            each tile is crafted with precision and available in multiple finishes and patterns.
+          </p>
+          <p>
+            Choose from a variety of shades and surface textures to complement your project’s design aesthetic.
+            These tiles combine the natural strength of granite with superior visual appeal.
+          </p>
+
+          <!-- Size Table -->
+          <div class="space32"></div>
+          <h3>Available Sizes</h3>
+          <div class="table-responsive">
+            <table class="table table-bordered text-center size-table">
+              <thead style="background-color:#e41e26;color:#fff;">
+                <tr>
+                  <th>Length x Width (CM)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>60 x 120 x 3</td></tr>
+                <tr><td>50 x 100 x 3</td></tr>
+                <tr><td>60 x 60 x 3</td></tr>
+                <tr><td>40 x 60 x 3</td></tr>
+                <tr><td>40 x 40 x 3</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Features -->
+          <div class="space32"></div>
+          <h3>Features & Benefits</h3>
+          <ul class="list-unstyled">
+            <li><i class="fa-solid fa-check"></i> Long-lasting shine and strength</li>
+            <li><i class="fa-solid fa-check"></i> Scratch and weather resistant</li>
+            <li><i class="fa-solid fa-check"></i> Easy to clean and maintain</li>
+            <li><i class="fa-solid fa-check"></i> Suitable for indoor and outdoor use</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ==== SIDEBAR ==== -->
+      <div class="col-lg-4">
+        <div class="service-leftside">
+          <div class="service-author-list">
+            <h3>Other Interlock Shapes</h3>
+            <ul>
+              <li><a href="rectangle" class="shape-link">Rectangle <i class="fa-solid fa-arrow-right"></i></a></li>
+              <li><a href="square" class="shape-link">Square <i class="fa-solid fa-arrow-right"></i></a></li>
+              <li><a href="classico" class="shape-link">Classico <i class="fa-solid fa-arrow-right"></i></a></li>
+              <li><a href="hexagon" class="shape-link">Hexagon <i class="fa-solid fa-arrow-right"></i></a></li>
+              <li><a href="wave" class="shape-link">Wave <i class="fa-solid fa-arrow-right"></i></a></li>
+            </ul>
+          </div>
+
+          <div class="helping-area">
+            <h3>Need Assistance?</h3>
+            <div class="btn-area">
+              <a href="tel:+971528735686" class="header-btn1">
+                <i class="fa-solid fa-phone-volume"></i> +971 528735686
+              </a>
+            </div>
+          </div>
+
+          <div class="download-broucher">
+            <h3>Download Brochure</h3>
+            <p>Get detailed specs and finish options for all tile types.</p>
+            <div class="btn-area">
+              <a href="/brochures/granite.pdf" class="header-btn1">
+                <img src="/img/icons/download1.svg" alt=""> PDF Download
+              </a>
+              <a href="/brochures/granite.docx" class="header-btn2">
+                <img src="/img/icons/download1.svg" alt=""> DOC Download
+              </a>
+            </div>
+          </div>
+
+          <div class="social-icons">
+            <h3>Follow Us</h3>
+            <ul>
+              <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+              <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+              <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+              <li><a href="#"><i class="fa-brands fa-pinterest-p"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===== PRODUCT AREA END ===== -->
+
+<!-- ===== JS: Dynamic Image Change ===== -->
+<script>
+  function changeImage(el) {
+    document.getElementById('mainProductImage').src = el.src;
+    document.querySelectorAll('.thumb').forEach(img => img.classList.remove('active'));
+    el.classList.add('active');
+  }
+</script>
+
+<style>
+  .thumb {
+    width: 70px;
+    height: 70px;
+    margin: 0 6px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    border-radius: 5px;
+    object-fit: cover;
+    transition: 0.3s;
+  }
+  .thumb.active, .thumb:hover {
+    border-color: #e41e26;
+    transform: scale(1.05);
+  }
+  .size-table td, .size-table th {
+    font-weight: 600;
+  }
+</style>
+{% endblock %}
