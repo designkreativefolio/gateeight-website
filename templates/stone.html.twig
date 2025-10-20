@@ -1,17 +1,23 @@
 {% extends 'layouts/landing.html.twig' %}
 
+{% block stylesheets %}
+  {{ parent() }}
+  {# Remove if your base already includes AOS #}
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+{% endblock %}
+
 {% block content %}
 <!-- ===== HERO AREA START ===== -->
-<div class="hero1-section-area about-bg-area">
+<div class="hero1-section-area about-bg-area" data-aos="fade-up" data-aos-duration="800">
   <img src="/img/bg/header-img1.png" alt="" class="header-img1" />
   <div class="container">
     <div class="row">
       <div class="col-lg-7 m-auto">
         <div class="hero-heading-area heading1 text-center">
-          <h1>Granite Tiles</h1>
-          <a href="index" class="backline">
+          <h1 data-aos="zoom-out" data-aos-duration="900">Stone</h1>
+          <a href="index" class="backline" data-aos="fade-up" data-aos-duration="900" data-aos-delay="120">
             Home <i class="fa-solid fa-angle-right"></i> Products
-            <i class="fa-solid fa-angle-right"></i> <span>Granite Tiles</span>
+            <i class="fa-solid fa-angle-right"></i> <span>Stone</span>
           </a>
         </div>
       </div>
@@ -28,35 +34,37 @@
       <div class="col-lg-8">
         <div class="service-rightside-area heading2">
           <!-- Gallery -->
-          <div class="product-gallery">
+          <div class="product-gallery" data-aos="zoom-in" data-aos-duration="800">
             <div class="main-image text-center">
-              <img id="mainProductImage" src="/img/all-images/granite1.jpg" alt="Granite Tile" class="img-fluid rounded shadow" />
+              <img id="mainProductImage" src="/img/all-images/st1.jpg" alt="Granite Tile" class="img-fluid rounded shadow" />
             </div>
-            <div class="thumbnail-gallery d-flex justify-content-center mt-3">
-              <img src="/img/all-images/granite1.jpg" class="thumb active" onclick="changeImage(this)" alt="">
-              <img src="/img/all-images/granite2.jpg" class="thumb" onclick="changeImage(this)" alt="">
-              <img src="/img/all-images/granite3.jpg" class="thumb" onclick="changeImage(this)" alt="">
-              <img src="/img/all-images/granite4.jpg" class="thumb" onclick="changeImage(this)" alt="">
+            <div class="thumbnail-gallery d-flex justify-content-center mt-3" id="thumbs"
+                 data-aos="fade-up" data-aos-duration="700" data-aos-delay="80">
+              <img src="/img/all-images/st1.jpg" class="thumb active" onclick="changeImage(this)" alt="">
+              <img src="/img/all-images/st2.jpg" class="thumb" onclick="changeImage(this)" alt="">
+              <img src="/img/all-images/st3.jpg" class="thumb" onclick="changeImage(this)" alt="">
+              <img src="/img/all-images/st4.jpg" class="thumb" onclick="changeImage(this)" alt="">
+              <img src="/img/all-images/st5.jpg" class="thumb" onclick="changeImage(this)" alt="">
             </div>
           </div>
 
           <div class="space32"></div>
 
           <!-- Description -->
-          <h3>Premium Granite Tiles</h3>
-          <p>
-            Our granite tiles are engineered for durability and elegance. Perfect for driveways, pathways, and modern interiors, 
-            each tile is crafted with precision and available in multiple finishes and patterns.
+          <h3 data-aos="fade-right" data-aos-duration="700">Premium Stone Collection</h3>
+          <p data-aos="fade-right" data-aos-duration="700" data-aos-delay="80">
+            Discover the timeless strength and natural beauty of our Premium Stone Collection — designed for both luxury and endurance. 
+            Each stone is precisely cut and finished to highlight its unique texture, grain, and natural color variation, offering unmatched visual depth and sophistication.
           </p>
-          <p>
-            Choose from a variety of shades and surface textures to complement your project’s design aesthetic.
-            These tiles combine the natural strength of granite with superior visual appeal.
+          <p data-aos="fade-right" data-aos-duration="700" data-aos-delay="120">
+            Ideal for exterior facades, pathways, landscape features, and upscale interiors, these stones deliver superior durability, slip resistance, 
+            and long-lasting performance. Available in multiple surface finishes and shades, our stones bring an organic yet refined character to every architectural project.
           </p>
 
           <!-- Size Table -->
           <div class="space32"></div>
-          <h3>Available Sizes</h3>
-          <div class="table-responsive">
+          <h3 data-aos="fade-up" data-aos-duration="700">Available Sizes</h3>
+          <div class="table-responsive" data-aos="fade-up" data-aos-duration="700" data-aos-delay="80">
             <table class="table table-bordered text-center size-table">
               <thead style="background-color:#e41e26;color:#fff;">
                 <tr>
@@ -75,12 +83,13 @@
 
           <!-- Features -->
           <div class="space32"></div>
-          <h3>Features & Benefits</h3>
+          <h3 data-aos="fade-up" data-aos-duration="700">Features & Benefits</h3>
           <ul class="list-unstyled">
-            <li><i class="fa-solid fa-check"></i> Long-lasting shine and strength</li>
-            <li><i class="fa-solid fa-check"></i> Scratch and weather resistant</li>
-            <li><i class="fa-solid fa-check"></i> Easy to clean and maintain</li>
-            <li><i class="fa-solid fa-check"></i> Suitable for indoor and outdoor use</li>
+            <li data-aos="fade-up" data-aos-duration="600"><i class="fa-solid fa-check"></i> Exceptional durability built to withstand heavy traffic and extreme weather conditions</li>
+            <li data-aos="fade-up" data-aos-duration="600" data-aos-delay="50"><i class="fa-solid fa-check"></i> Natural texture with anti-slip surface ideal for driveways, patios, and walkways</li>
+            <li data-aos="fade-up" data-aos-duration="600" data-aos-delay="100"><i class="fa-solid fa-check"></i> Resistant to stains, scratches, and fading — perfect for long-term use</li>
+            <li data-aos="fade-up" data-aos-duration="600" data-aos-delay="150"><i class="fa-solid fa-check"></i> Enhances architectural spaces with timeless elegance and organic beauty</li>
+            <li data-aos="fade-up" data-aos-duration="600" data-aos-delay="200"><i class="fa-solid fa-check"></i> Low maintenance and easy to clean, retaining its premium finish for years</li>
           </ul>
         </div>
       </div>
@@ -88,18 +97,7 @@
       <!-- ==== SIDEBAR ==== -->
       <div class="col-lg-4">
         <div class="service-leftside">
-          <div class="service-author-list">
-            <h3>Other Interlock Shapes</h3>
-            <ul>
-              <li><a href="rectangle" class="shape-link">Rectangle <i class="fa-solid fa-arrow-right"></i></a></li>
-              <li><a href="square" class="shape-link">Square <i class="fa-solid fa-arrow-right"></i></a></li>
-              <li><a href="classico" class="shape-link">Classico <i class="fa-solid fa-arrow-right"></i></a></li>
-              <li><a href="hexagon" class="shape-link">Hexagon <i class="fa-solid fa-arrow-right"></i></a></li>
-              <li><a href="wave" class="shape-link">Wave <i class="fa-solid fa-arrow-right"></i></a></li>
-            </ul>
-          </div>
-
-          <div class="helping-area">
+          <div class="helping-area" data-aos="zoom-in" data-aos-duration="700">
             <h3>Need Assistance?</h3>
             <div class="btn-area">
               <a href="tel:+971528735686" class="header-btn1">
@@ -108,39 +106,42 @@
             </div>
           </div>
 
-          <div class="download-broucher">
+          <div class="download-broucher" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="100">
             <h3>Download Brochure</h3>
             <p>Get detailed specs and finish options for all tile types.</p>
             <div class="btn-area">
               <a href="/brochures/granite.pdf" class="header-btn1">
                 <img src="/img/icons/download1.svg" alt=""> PDF Download
               </a>
-              <a href="/brochures/granite.docx" class="header-btn2">
-                <img src="/img/icons/download1.svg" alt=""> DOC Download
-              </a>
             </div>
           </div>
 
-          <div class="social-icons">
+          <div class="social-icons" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="180">
             <h3>Follow Us</h3>
             <ul>
-              <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-              <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-              <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
-              <li><a href="#"><i class="fa-brands fa-pinterest-p"></i></a></li>
+              <li><a href="https://www.facebook.com/p/Gate-Eight-Trading-LLC-61575302306470/"><i class="fa-brands fa-facebook-f"></i></a></li>
+              <li><a href="https://www.instagram.com/gateeightbm/"><i class="fa-brands fa-instagram"></i></a></li>
             </ul>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </div>
 <!-- ===== PRODUCT AREA END ===== -->
 
-<!-- ===== JS: Dynamic Image Change ===== -->
+<!-- ===== JS: Dynamic Image Change + AOS refresh ===== -->
 <script>
   function changeImage(el) {
-    document.getElementById('mainProductImage').src = el.src;
+    const main = document.getElementById('mainProductImage');
+    const pre = new Image();
+    pre.onload = () => {
+      main.src = el.src;
+      if (window.AOS) requestAnimationFrame(() => AOS.refreshHard());
+    };
+    pre.src = el.src;
+
     document.querySelectorAll('.thumb').forEach(img => img.classList.remove('active'));
     el.classList.add('active');
   }
@@ -161,8 +162,28 @@
     border-color: #e41e26;
     transform: scale(1.05);
   }
-  .size-table td, .size-table th {
-    font-weight: 600;
-  }
+  .size-table td, .size-table th { font-weight: 600; }
+
+  /* more room before the footer - extra padding element */
+  .service-leftside-area.sp8 { padding-bottom: 66px; }
+  @media (max-width: 991.98px) { .service-leftside-area.sp8 { padding-bottom: 72px; } }
+  @media (max-width: 575.98px) { .service-leftside-area.sp8 { padding-bottom: 56px; } }
 </style>
+{% endblock %}
+
+{% block javascripts %}
+  {{ parent() }}
+  {# Remove if your base already includes AOS #}
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      AOS.init({
+        duration: 800,
+        once: true,
+        offset: 80,
+        easing: 'ease-out-cubic'
+      });
+      setTimeout(() => AOS.refresh(), 400);
+    });
+  </script>
 {% endblock %}

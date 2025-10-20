@@ -1,17 +1,23 @@
 {% extends 'layouts/landing.html.twig' %}
 
+{% block stylesheets %}
+  {{ parent() }}
+  {# Remove if your base already includes AOS #}
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+{% endblock %}
+
 {% block content %}
 <!-- ===== HERO AREA START ===== -->
-<div class="hero1-section-area about-bg-area">
-  <img src="/img/bg/header-img1.png" alt="" class="header-img1" />
+<div class="hero1-section-area about-bg-area" data-aos="fade-up" data-aos-duration="800">
+  <img src="/img/bg/bricks-banner.jpg" alt="" class="header-img1" />
   <div class="container">
     <div class="row">
       <div class="col-lg-7 m-auto">
         <div class="hero-heading-area heading1 text-center">
-          <h1>Granite Tiles</h1>
-          <a href="index" class="backline">
+          <h1 data-aos="zoom-out" data-aos-duration="900">Bricks</h1>
+          <a href="index" class="backline" data-aos="fade-up" data-aos-duration="900" data-aos-delay="120">
             Home <i class="fa-solid fa-angle-right"></i> Products
-            <i class="fa-solid fa-angle-right"></i> <span>Granite Tiles</span>
+            <i class="fa-solid fa-angle-right"></i> <span>Bricks</span>
           </a>
         </div>
       </div>
@@ -27,79 +33,73 @@
       <!-- ==== MAIN PRODUCT SECTION ==== -->
       <div class="col-lg-8">
         <div class="service-rightside-area heading2">
-          <!-- Gallery -->
-          <div class="product-gallery">
-            <div class="main-image text-center">
-              <img id="mainProductImage" src="/img/all-images/granite1.jpg" alt="Granite Tile" class="img-fluid rounded shadow" />
+
+          {# --------- GALLERY (sizes editable via CSS vars) --------- #}
+          <div class="product-gallery fixed-sizes"
+               style="--main-size: 420px; --thumb-size: 72px; --gap: 10px;"
+               data-aos="zoom-in" data-aos-duration="800">
+
+            <!-- Main image box (fixed square like screenshot) -->
+            <div class="image-box main-box mx-auto">
+              <img id="mainProductImage"
+                   src="/img/all-images/br1.jpeg"
+                   alt="Brick 1"
+                   class="image-fit"
+                   loading="eager" />
             </div>
-            <div class="thumbnail-gallery d-flex justify-content-center mt-3">
-              <img src="/img/all-images/granite1.jpg" class="thumb active" onclick="changeImage(this)" alt="">
-              <img src="/img/all-images/granite2.jpg" class="thumb" onclick="changeImage(this)" alt="">
-              <img src="/img/all-images/granite3.jpg" class="thumb" onclick="changeImage(this)" alt="">
-              <img src="/img/all-images/granite4.jpg" class="thumb" onclick="changeImage(this)" alt="">
+
+            <!-- Thumbnails -->
+            <div class="thumbnail-gallery d-flex flex-wrap justify-content-center mt-3" id="thumbs"
+                 data-aos="fade-up" data-aos-duration="700" data-aos-delay="80">
+              {% set imgs = [
+                {'src':'/img/all-images/br1.jpeg','alt':'Brick 1'},
+                {'src':'/img/all-images/br2.jpeg','alt':'Brick 2'},
+                {'src':'/img/all-images/br3.jpeg','alt':'Brick 3'},
+                {'src':'/img/all-images/br4.jpeg','alt':'Brick 4'},
+                {'src':'/img/all-images/br5.jpeg','alt':'Brick 5'},
+                {'src':'/img/all-images/br6.jpeg','alt':'Brick 6'},
+                {'src':'/img/all-images/br7.jpeg','alt':'Brick 7'},
+                {'src':'/img/all-images/br8.jpeg','alt':'Brick 8'},
+                {'src':'/img/all-images/br9.jpeg','alt':'Brick 9'}
+              ] %}
+
+              {% for im in imgs %}
+              <button class="thumb-box {{ loop.first ? 'active' : '' }}" type="button"
+                      onclick="changeImage(this)"
+                      data-src="{{ im.src }}" data-alt="{{ im.alt }}"
+                      data-aos="fade-up" data-aos-duration="500" data-aos-delay="{{ 60 * loop.index0 }}">
+                <img src="{{ im.src }}" alt="{{ im.alt }}" class="image-fit" loading="lazy">
+              </button>
+              {% endfor %}
             </div>
           </div>
 
           <div class="space32"></div>
 
-          <!-- Description -->
-          <h3>Premium Granite Tiles</h3>
-          <p>
-            Our granite tiles are engineered for durability and elegance. Perfect for driveways, pathways, and modern interiors, 
-            each tile is crafted with precision and available in multiple finishes and patterns.
+          <h3 data-aos="fade-right" data-aos-duration="700">Premium Bricks</h3>
+          <p data-aos="fade-right" data-aos-duration="700" data-aos-delay="80">
+            Discover the beauty and versatility of our <strong>bricks</strong> — engineered for strength, weather-resistance,
+            and consistent sizing for faster installs across <strong>residential</strong> and <strong>commercial</strong> projects.
           </p>
-          <p>
-            Choose from a variety of shades and surface textures to complement your project’s design aesthetic.
-            These tiles combine the natural strength of granite with superior visual appeal.
+          <p data-aos="fade-right" data-aos-duration="700" data-aos-delay="120">
+            From facades and boundary walls to landscaping and pathways, our bricks deliver lasting performance and a clean, timeless look.
           </p>
 
-          <!-- Size Table -->
-          <div class="space32"></div>
-          <h3>Available Sizes</h3>
-          <div class="table-responsive">
-            <table class="table table-bordered text-center size-table">
-              <thead style="background-color:#e41e26;color:#fff;">
-                <tr>
-                  <th>Length x Width (CM)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr><td>60 x 120 x 3</td></tr>
-                <tr><td>50 x 100 x 3</td></tr>
-                <tr><td>60 x 60 x 3</td></tr>
-                <tr><td>40 x 60 x 3</td></tr>
-                <tr><td>40 x 40 x 3</td></tr>
-              </tbody>
-            </table>
-          </div>
-
-          <!-- Features -->
-          <div class="space32"></div>
-          <h3>Features & Benefits</h3>
-          <ul class="list-unstyled">
-            <li><i class="fa-solid fa-check"></i> Long-lasting shine and strength</li>
-            <li><i class="fa-solid fa-check"></i> Scratch and weather resistant</li>
-            <li><i class="fa-solid fa-check"></i> Easy to clean and maintain</li>
-            <li><i class="fa-solid fa-check"></i> Suitable for indoor and outdoor use</li>
+          <h3 data-aos="fade-up" data-aos-duration="700">Why Choose Our Bricks?</h3>
+          <ul>
+            <li data-aos="fade-up" data-aos-duration="600"><i class="fa-solid fa-check"></i> <strong>Consistent Finish:</strong> Uniform color and size for neat, repeatable masonry.</li>
+            <li data-aos="fade-up" data-aos-duration="600" data-aos-delay="50"><i class="fa-solid fa-check"></i> <strong>Durability:</strong> High compressive strength, weather & salt resistance.</li>
+            <li data-aos="fade-up" data-aos-duration="600" data-aos-delay="100"><i class="fa-solid fa-check"></i> <strong>Low Maintenance:</strong> Fade-resistant finish, easy to clean.</li>
+            <li data-aos="fade-up" data-aos-duration="600" data-aos-delay="150"><i class="fa-solid fa-check"></i> <strong>Sustainable Options:</strong> Efficient firing and recycled content lines available.</li>
           </ul>
+
         </div>
       </div>
 
       <!-- ==== SIDEBAR ==== -->
       <div class="col-lg-4">
         <div class="service-leftside">
-          <div class="service-author-list">
-            <h3>Other Interlock Shapes</h3>
-            <ul>
-              <li><a href="rectangle" class="shape-link">Rectangle <i class="fa-solid fa-arrow-right"></i></a></li>
-              <li><a href="square" class="shape-link">Square <i class="fa-solid fa-arrow-right"></i></a></li>
-              <li><a href="classico" class="shape-link">Classico <i class="fa-solid fa-arrow-right"></i></a></li>
-              <li><a href="hexagon" class="shape-link">Hexagon <i class="fa-solid fa-arrow-right"></i></a></li>
-              <li><a href="wave" class="shape-link">Wave <i class="fa-solid fa-arrow-right"></i></a></li>
-            </ul>
-          </div>
-
-          <div class="helping-area">
+          <div class="helping-area" data-aos="zoom-in" data-aos-duration="700">
             <h3>Need Assistance?</h3>
             <div class="btn-area">
               <a href="tel:+971528735686" class="header-btn1">
@@ -108,61 +108,128 @@
             </div>
           </div>
 
-          <div class="download-broucher">
+          <div class="download-broucher" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="100">
             <h3>Download Brochure</h3>
-            <p>Get detailed specs and finish options for all tile types.</p>
+            <p>Get detailed specs and finish options for all brick types.</p>
             <div class="btn-area">
-              <a href="/brochures/granite.pdf" class="header-btn1">
+              <a href="/brochures/bricks.pdf" class="header-btn1">
                 <img src="/img/icons/download1.svg" alt=""> PDF Download
-              </a>
-              <a href="/brochures/granite.docx" class="header-btn2">
-                <img src="/img/icons/download1.svg" alt=""> DOC Download
               </a>
             </div>
           </div>
 
-          <div class="social-icons">
+          <div class="social-icons" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="180">
             <h3>Follow Us</h3>
             <ul>
-              <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-              <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-              <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
-              <li><a href="#"><i class="fa-brands fa-pinterest-p"></i></a></li>
+              <li><a href="https://www.facebook.com/p/Gate-Eight-Trading-LLC-61575302306470/"><i class="fa-brands fa-facebook-f"></i></a></li>
+              <li><a href="https://www.instagram.com/gateeightbm/"><i class="fa-brands fa-instagram"></i></a></li>
             </ul>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </div>
 <!-- ===== PRODUCT AREA END ===== -->
 
-<!-- ===== JS: Dynamic Image Change ===== -->
+<!-- ===== JS: Dynamic Image Change + AOS refresh ===== -->
 <script>
   function changeImage(el) {
-    document.getElementById('mainProductImage').src = el.src;
-    document.querySelectorAll('.thumb').forEach(img => img.classList.remove('active'));
+    const imgEl = document.getElementById('mainProductImage');
+    const newSrc = el.getAttribute('data-src');
+    const newAlt = el.getAttribute('data-alt') || 'Product image';
+    if (!newSrc) return;
+
+    const pre = new Image();
+    pre.onload = () => {
+      imgEl.src = newSrc;
+      imgEl.alt = newAlt;
+      // Keep AOS positions correct after image/height changes
+      if (window.AOS) requestAnimationFrame(() => AOS.refreshHard());
+    };
+    pre.src = newSrc;
+
+    document.querySelectorAll('.thumb-box').forEach(b => b.classList.remove('active'));
     el.classList.add('active');
   }
 </script>
 
 <style>
-  .thumb {
-    width: 70px;
-    height: 70px;
-    margin: 0 6px;
+  /* ======= UNIFORM SQUARES LIKE THE SCREENSHOT ======= */
+  .product-gallery.fixed-sizes {
+    --main-size: 420px;    /* main image square size */
+    --thumb-size: 72px;    /* thumbnail square size */
+    --gap: 10px;           /* spacing between thumbs */
+    text-align: center;
+  }
+
+  .image-box.main-box {
+    width: var(--main-size);
+    height: var(--main-size);
+    margin: 0 auto;
+    background: #f7f7f7;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 22px rgba(0,0,0,.10);
+  }
+
+  .image-fit { width:100%; height:100%; object-fit: cover; display:block; }
+
+  .thumbnail-gallery { gap: var(--gap); }
+
+  .thumb-box {
+    width: var(--thumb-size);
+    height: var(--thumb-size);
     border: 2px solid transparent;
+    border-radius: 8px;
+    overflow: hidden;
     cursor: pointer;
-    border-radius: 5px;
-    object-fit: cover;
-    transition: 0.3s;
+    padding: 0;
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,.06);
+    transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
   }
-  .thumb.active, .thumb:hover {
-    border-color: #e41e26;
-    transform: scale(1.05);
+  .thumb-box:hover { transform: translateY(-2px); }
+  .thumb-box.active, .thumb-box:focus { border-color: #e41e26; outline: none; }
+
+    /* more room before the footer */
+  .service-leftside-area.sp8 { padding-bottom: 66px; }
+  @media (max-width: 991.98px) { .service-leftside-area.sp8 { padding-bottom: 72px; } }
+  @media (max-width: 575.98px) { .service-leftside-area.sp8 { padding-bottom: 56px; } }
+
+  /* Tablet */
+  @media (max-width: 991.98px) {
+    .product-gallery.fixed-sizes {
+      --main-size: 360px;
+      --thumb-size: 64px;
+    }
   }
-  .size-table td, .size-table th {
-    font-weight: 600;
+  /* Mobile */
+  @media (max-width: 575.98px) {
+    .product-gallery.fixed-sizes {
+      --main-size: 280px;
+      --thumb-size: 56px;
+      --gap: 8px;
+    }
   }
 </style>
+{% endblock %}
+
+{% block javascripts %}
+  {{ parent() }}
+  {# Remove if your base already includes AOS #}
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      AOS.init({
+        duration: 800,
+        once: true,
+        offset: 80,
+        easing: 'ease-out-cubic'
+      });
+      // extra pass after first paint for layout shifts
+      setTimeout(() => AOS.refresh(), 400);
+    });
+  </script>
 {% endblock %}

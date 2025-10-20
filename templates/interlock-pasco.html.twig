@@ -1,15 +1,21 @@
 {% extends 'layouts/landing.html.twig' %}
 
+{% block stylesheets %}
+  {{ parent() }}
+  {# If your base already loads AOS, remove this line #}
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+{% endblock %}
+
 {% block content %}
   <!-- ===== HERO AREA STARTS ======= -->
-  <div class="hero1-section-area about-bg-area">
+  <div class="hero1-section-area about-bg-area" data-aos="fade-up" data-aos-duration="800">
     <img src="/img/bg/header-img1.jpg" alt="" class="header-img1" />
     <div class="container">
       <div class="row">
         <div class="col-lg-7 m-auto">
           <div class="hero-heading-area heading1 text-center">
-            <h1>Interlock Pasco</h1>
-            <a href="index" class="backline">Home <i class="fa-solid fa-angle-right"></i> <span>Interlocks</span></a>
+            <h1 data-aos="zoom-out" data-aos-duration="900">Interlock Pasco</h1>
+            <a href="index" class="backline" data-aos="fade-up" data-aos-duration="900" data-aos-delay="100">Home <i class="fa-solid fa-angle-right"></i> <span>Interlocks</span></a>
           </div>
         </div>
       </div>
@@ -26,19 +32,19 @@
           <div class="service-rightside-area heading2 rightsidebar">
 
             <!-- Main image -->
-            <div class="img1">
+            <div class="img1" data-aos="zoom-in" data-aos-duration="800">
               <img id="shape-image" src="/img/interlocks/rectangular-1.jpg" alt="Interlock preview" />
             </div>
             <div class="space24"></div>
 
             <!-- Title + Description -->
-            <h3 id="shape-title">Rectangular</h3>
-            <p id="shape-desc">
+            <h3 id="shape-title" data-aos="fade-right" data-aos-duration="700">Rectangular</h3>
+            <p id="shape-desc" data-aos="fade-right" data-aos-duration="700" data-aos-delay="100">
               Classic rectangular interlock pavers ideal for driveways and walkways. Durable, clean lines, and simple patterns that fit most sites.
             </p>
 
             <!-- Small gallery for the current shape -->
-            <div class="row g-3" id="shape-gallery">
+            <div class="row g-3" id="shape-gallery" data-aos="fade-up" data-aos-duration="700" data-aos-delay="150">
               <div class="col-4">
                 <img class="shape-thumb active" src="/img/interlocks/rectangular-1.jpg" alt="Rectangular 1" data-full="/img/interlocks/rectangular-1.jpg">
               </div>
@@ -56,7 +62,7 @@
             <div class="shape-options">
               <div class="row g-4 align-items-start">
                 <!-- Sizes -->
-                <div class="col-lg-7">
+                <div class="col-lg-7" data-aos="fade-up" data-aos-duration="700">
                   <h5 class="opt-title">Available Size’s :</h5>
                   <div class="sizes-card">
                     <table class="sizes-table" id="shape-sizes"><!-- injected by JS --></table>
@@ -64,7 +70,7 @@
                 </div>
 
                 <!-- Colors -->
-                <div class="col-lg-5">
+                <div class="col-lg-5" data-aos="fade-up" data-aos-duration="700" data-aos-delay="100">
                   <h5 class="opt-title">Available Colors :</h5>
                   <div class="colors-wrap" id="shape-colors"><!-- injected by JS --></div>
                 </div>
@@ -74,7 +80,7 @@
             <div class="space32"></div>
 
             <!-- Optional FAQs -->
-            <div class="faq-auhtor-area1">
+            <div class="faq-auhtor-area1" data-aos="fade-up" data-aos-duration="700">
               <div class="accordion accordion-flush active" id="accordionFlushExample">
                 <div class="accordion-item">
                   <h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="true" aria-controls="flush-collapseOne">Which interlock shape is best for driveways?</button></h2>
@@ -115,7 +121,7 @@
 
         <!-- Sidebar shape picker -->
         <div class="col-lg-4">
-          <div class="service-leftside">
+          <div class="service-leftside" data-aos="zoom-in" data-aos-duration="700">
             <div class="service-author-list">
               <h3>Shapes</h3>
               <ul id="shape-picker">
@@ -151,10 +157,8 @@
             <div class="social-icons">
               <h3>Follow Us</h3>
               <ul>
-                <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-                <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
-                <li><a href="#"><i class="fa-brands fa-pinterest-p"></i></a></li>
+              <li><a href="https://www.facebook.com/p/Gate-Eight-Trading-LLC-61575302306470/"><i class="fa-brands fa-facebook-f"></i></a></li>
+              <li><a href="https://www.instagram.com/gateeightbm/"><i class="fa-brands fa-instagram"></i></a></li>
               </ul>
             </div>
           </div>
@@ -171,14 +175,14 @@
       <div class="row">
         <div class="col-lg-6 m-auto">
           <div class="service-header-area heading2 text-center">
-            <h2 class="tg-element-title">Explore More Styles</h2>
+            <h2 class="tg-element-title" data-aos="fade-up" data-aos-duration="700">Explore More Styles</h2>
           </div>
         </div>
       </div>
       <div class="row">
         <!-- Three quick previews; you can add more tiles if you want -->
         <div class="col-lg-4 col-md-6">
-          <div class="service-auhtor-boxarea">
+          <div class="service-auhtor-boxarea" data-aos="fade-up" data-aos-duration="700">
             <div class="img1"><img src="/img/interlocks/hexagon-1.jpg" alt="Hexagon" /></div>
             <div class="content-area">
               <h3>01</h3>
@@ -190,7 +194,7 @@
         </div>
 
         <div class="col-lg-4 col-md-6">
-          <div class="service-auhtor-boxarea">
+          <div class="service-auhtor-boxarea" data-aos="fade-up" data-aos-duration="700" data-aos-delay="100">
             <div class="img1"><img src="/img/interlocks/rhombus-1.jpg" alt="Rhombus" /></div>
             <div class="content-area">
               <h3>02</h3>
@@ -202,8 +206,8 @@
         </div>
 
         <div class="col-lg-4 col-md-6">
-          <div class="service-auhtor-boxarea">
-            <div class="img1"><img src="/img/interlocks/classico-1.jpg" alt="Classico" /></div>
+          <div class="service-auhtor-boxarea" data-aos="fade-up" data-aos-duration="700" data-aos-delay="200">
+            <div class="img1"><img src="/img/interlocks/classico-1.jpeg" alt="Classico" /></div>
             <div class="content-area">
               <h3>03</h3>
               <a href="#" data-shape="classico" class="shape-link">Classico</a>
@@ -305,6 +309,16 @@
       outline-offset: 2px;
       border-color: #111;
     }
+    /* more room before the footer */
+    .service-leftside-area.sp8 {
+      padding-bottom: 66px;   /* was too small/none */
+    }
+    @media (max-width: 991.98px) {
+      .service-leftside-area.sp8 { padding-bottom: 72px; }
+    }
+    @media (max-width: 575.98px) {
+    .service-leftside-area.sp8 { padding-bottom: 56px; }
+    }
   </style>
 
   <!-- ========= Shape switching + sizes/colors rendering ========= -->
@@ -344,7 +358,8 @@
         images: [
           '/img/interlocks/rectangle-1.jpg',
           '/img/interlocks/rectangle-2.jpg',
-          '/img/interlocks/rectangle-3.jpg'
+          '/img/interlocks/rectangle-3.jpg',
+          '/img/interlocks/rectangle-4.jpeg',
         ],
         sizes: STANDARD_SIZES,
         colors: BASE_COLORS
@@ -355,7 +370,8 @@
         images: [
           '/img/interlocks/square-1.jpg',
           '/img/interlocks/square-2.jpg',
-          '/img/interlocks/square-3.jpg'
+          '/img/interlocks/square-3.jpg',
+          '/img/interlocks/square-4.jpeg',
         ],
         sizes: [
           { size:'30 x 30', thick:['6 CM','8 CM'] },
@@ -382,9 +398,7 @@
         title: 'Cubes',
         desc: 'Stackable block/cube style for robust, modular looks and edge details.',
         images: [
-          '/img/interlocks/cubes-1.jpg',
-          '/img/interlocks/cubes-2.jpg',
-          '/img/interlocks/cubes-3.jpg'
+          '/img/interlocks/cube-2.jpeg',
         ],
         sizes: [
           { size:'10 x 10', thick:['6 CM','8 CM'] },
@@ -396,9 +410,11 @@
         title: 'Diamond',
         desc: 'Angular diamond modules to create dynamic, repeating patterns.',
         images: [
-          '/img/interlocks/diamond-1.jpg',
-          '/img/interlocks/diamond-2.jpg',
-          '/img/interlocks/diamond-3.jpg'
+          '/img/interlocks/diamond-1.jpeg',
+          '/img/interlocks/diamond-2.jpeg',
+          '/img/interlocks/diamond-3.jpeg',
+          '/img/interlocks/diamond-4.jpeg',
+          '/img/interlocks/diamond-5.jpeg',
         ],
         sizes: [
           { size:'30 x 30', thick:['6 CM'] },
@@ -424,9 +440,10 @@
         title: 'Polygonal',
         desc: 'Multi-sided polygonal pieces to create random or ordered tessellations.',
         images: [
-          '/img/interlocks/polygonal-1.jpg',
-          '/img/interlocks/polygonal-2.jpg',
-          '/img/interlocks/polygonal-3.jpg'
+          '/img/interlocks/polygonal-1.jpeg',
+          '/img/interlocks/polygonal-2.jpeg',
+          '/img/interlocks/polygonal-3.jpeg',
+          '/img/interlocks/polygonal-4.jpeg',
         ],
         sizes: [
           { size:'Mixed set', thick:['6 CM'] },
@@ -466,7 +483,7 @@
         title: 'Classico',
         desc: 'Timeless stone look with rounded edges and soft curves. Ideal for classic landscapes and garden paths.',
         images: [
-          '/img/interlocks/classico-1.jpg',
+          '/img/interlocks/classico-1.jpeg',
           '/img/interlocks/classico-2.jpg',
           '/img/interlocks/classico-3.jpg'
         ],
@@ -489,11 +506,12 @@
 
     function renderGallery(imgs) {
       gallery.innerHTML = imgs.map((src, i) => `
-        <div class="col-4">
+        <div class="col-4" data-aos="fade-up" data-aos-duration="500" data-aos-delay="${i*60}">
           <img class="shape-thumb ${i === 0 ? 'active' : ''}" src="${src}" alt="thumb ${i+1}" data-full="${src}">
         </div>
       `).join('');
       bindThumbs();
+      if (window.AOS) AOS.refresh(); // new nodes added -> recalc
     }
 
     function bindThumbs() {
@@ -501,7 +519,14 @@
         img.addEventListener('click', () => {
           gallery.querySelectorAll('.shape-thumb').forEach(t => t.classList.remove('active'));
           img.classList.add('active');
-          shapeImage.src = img.dataset.full;
+
+          // smooth swap + refresh AOS after image paints
+          const pre = new Image();
+          pre.onload = () => {
+            shapeImage.src = img.dataset.full;
+            if (window.AOS) requestAnimationFrame(() => AOS.refreshHard());
+          };
+          pre.src = img.dataset.full;
         });
       });
     }
@@ -518,30 +543,31 @@
       const body = `
         <tbody>
           ${rows.map(r => `
-            <tr>
+            <tr data-aos="fade-up" data-aos-duration="600">
               <td>${r.size}</td>
               <td>${r.thick.join(' &nbsp; | &nbsp; ')}</td>
             </tr>
           `).join('')}
         </tbody>`;
       sizeTbl.innerHTML = head + body;
+      if (window.AOS) AOS.refresh();
     }
 
     function renderColors(colors) {
       if (!colors || !colors.length) { colorBox.innerHTML = ''; return; }
-      colorBox.innerHTML = colors.map(c => `
-        <div class="color-chip" title="${c.name}">
+      colorBox.innerHTML = colors.map((c,i) => `
+        <div class="color-chip" title="${c.name}" data-aos="zoom-in" data-aos-duration="500" data-aos-delay="${i*40}">
           <div class="swatch" style="background:${c.hex}; ${c.border ? `border-color:${c.border}` : ''}"></div>
           <div class="label">${c.name}</div>
         </div>
       `).join('');
-      // optional selectable highlight
       colorBox.querySelectorAll('.color-chip').forEach(chip => {
         chip.addEventListener('click', () => {
           colorBox.querySelectorAll('.color-chip').forEach(x => x.classList.remove('is-active'));
           chip.classList.add('is-active');
         });
       });
+      if (window.AOS) AOS.refresh();
     }
 
     function loadShape(key) {
@@ -549,10 +575,19 @@
       if (!s) return;
       shapeTitle.textContent = s.title;
       shapeDesc.textContent  = s.desc;
-      shapeImage.src         = s.images[0];
+
+      // Preload first image, then swap and refresh
+      const pre = new Image();
+      pre.onload = () => {
+        shapeImage.src = s.images[0];
+        if (window.AOS) AOS.refreshHard();
+      };
+      pre.src = s.images[0];
+
       renderGallery(s.images);
       renderSizes(s.sizes);
       renderColors(s.colors);
+
       // Highlight active in sidebar
       if (picker) {
         picker.querySelectorAll('a').forEach(a => a.classList.toggle('active', a.dataset.shape === key));
@@ -566,6 +601,7 @@
         if (!a) return;
         e.preventDefault();
         loadShape(a.dataset.shape);
+        if (window.AOS) AOS.refresh();
       });
     }
 
@@ -582,6 +618,33 @@
 
     // Initial load
     loadShape('rectangular');
+
+    // Safety: refresh after fonts/images settle
+    window.addEventListener('load', () => { if (window.AOS) AOS.refresh(); });
   })();
+  </script>
+{% endblock %}
+
+{% block javascripts %}
+  {{ parent() }}
+  {# If your base already loads AOS, remove these lines #}
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      AOS.init({
+        duration: 800,
+        once: true,
+        offset: 80,
+        easing: 'ease-out-cubic'
+      });
+      // one more pass after first paint
+      setTimeout(() => AOS.refresh(), 400);
+
+      // Bootstrap accordion visibility changes can shift layout; keep AOS in sync
+      document.querySelectorAll('.accordion-button').forEach(btn => {
+        btn.addEventListener('shown.bs.collapse', () => AOS.refresh());
+        btn.addEventListener('hidden.bs.collapse', () => AOS.refresh());
+      });
+    });
   </script>
 {% endblock %}

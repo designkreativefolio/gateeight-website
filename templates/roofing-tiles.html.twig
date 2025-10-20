@@ -1,0 +1,315 @@
+{% extends 'layouts/landing.html.twig' %}
+
+{% block stylesheets %}
+  {{ parent() }}
+  {# Remove if your base already includes AOS #}
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+{% endblock %}
+
+{% block content %}
+<!-- ===== HERO AREA START ===== -->
+<div class="hero1-section-area about-bg-area" data-aos="fade-up" data-aos-duration="800">
+  <img src="/img/bg/roofing-bg.webp" alt="" class="header-img1" />
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 m-auto">
+        <div class="hero-heading-area heading1 text-center">
+          <h1 data-aos="zoom-out" data-aos-duration="900">Roofing Tiles</h1>
+          <a href="index" class="backline" data-aos="fade-up" data-aos-duration="900" data-aos-delay="120">
+            Home <i class="fa-solid fa-angle-right"></i> Products
+            <i class="fa-solid fa-angle-right"></i> <span>Roofing Tiles</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===== HERO AREA END ===== -->
+
+<!-- ===== PAGE BODY START ===== -->
+<div class="service-leftside-area sp8">
+  <div class="container">
+
+    {# ===================== 1) TILE TYPES GRID ===================== #}
+    <div class="row">
+      <div class="col-12">
+        <h2 class="section-title mb-3" data-aos="fade-up" data-aos-duration="700">Available Colours & Finishes</h2>
+        <p class="text-muted mb-4" data-aos="fade-up" data-aos-duration="700" data-aos-delay="80">Select from a wide range of finishes designed for performance and style.</p>
+      </div>
+
+      {% set tiles = [
+        {'name':'DUNA BROWN','src':'/img/roof/duna-brown.webp'},
+        {'name':'ROSSO RUBINO DARK','src':'/img/roof/rosso-rubino-dark.webp'},
+        {'name':'BROWN','src':'/img/roof/brown.webp'},
+        {'name':'MAEDIVO','src':'/img/roof/maedivo.webp'},
+        {'name':'VULCANO','src':'/img/roof/vulcano.webp'},
+        {'name':'VALTERRA','src':'/img/roof/valterra.webp'},
+        {'name':'RUSTICO ARENA','src':'/img/roof/rustico-arena.webp'},
+        {'name':'ARENA OCRE','src':'/img/roof/arena-ocre.webp'},
+        {'name':'STRAW','src':'/img/roof/straw.webp'},
+        {'name':'TOBACCO','src':'/img/roof/tobacco.webp'},
+        {'name':'BLUE DUBAI','src':'/img/roof/blue-dubai.webp'},
+        {'name':'GALENA','src':'/img/roof/galena.webp'},
+        {'name':'BLUE','src':'/img/roof/blue.webp'},
+        {'name':'GREEN','src':'/img/roof/green.webp'},
+        {'name':'EBANO','src':'/img/roof/ebano.webp'}
+      ] %}
+
+      <div id="tilesGrid" class="tiles-grid">
+        {% for t in tiles %}
+        <div class="tile-card {{ loop.index > 12 ? 'is-hidden' : '' }}"
+             data-aos="fade-up" data-aos-duration="600" data-aos-delay="{{ (loop.index0 % 6) * 60 }}">
+          <div class="tile-image-wrap">
+            <img src="{{ t.src }}" alt="{{ t.name }}" loading="lazy" decoding="async">
+          </div>
+          <div class="tile-name" title="{{ t.name }}">{{ t.name }}</div>
+        </div>
+        {% endfor %}
+      </div>
+
+      {% if tiles|length > 12 %}
+      <div class="col-12 text-center mt-3">
+        <button id="loadMoreTiles" class="btn btn-outline-dark rounded-pill px-4" data-aos="fade-up" data-aos-duration="600">Load more</button>
+      </div>
+      {% endif %}
+    </div>
+
+    <div class="space32"></div>
+
+    {# ===================== 2) COMPLETED PROJECTS GALLERY ===================== #}
+    {% set projects = [
+      {'src':'/img/roof/roof-proj1.webp','alt':'Project 1'},
+      {'src':'/img/roof/roof-proj2.webp','alt':'Project 2'},
+      {'src':'/img/roof/roof-proj3.webp','alt':'Project 3'},
+      {'src':'/img/roof/roof-proj4.webp','alt':'Project 4'},
+      {'src':'/img/roof/roof-proj5.webp','alt':'Project 5'},
+      {'src':'/img/roof/roof-proj6.webp','alt':'Project 6'},
+    ] %}
+
+    <div class="row">
+      <div class="col-12">
+        <h2 class="section-title mb-3" data-aos="fade-up" data-aos-duration="700">Roofing Tile Gallery</h2>
+      </div>
+      <div class="col-12 d-flex justify-content-center">
+        <div class="product-gallery fixed-sizes"
+             style="--main-max-width: clamp(720px, 76vw, 980px); --main-ratio: 16/9; --thumb-size: 70px; --gap: 10px; --arrow-inset: 16px;"
+             data-aos="zoom-in" data-aos-duration="800">
+          <div class="main-frame">
+            <button class="nav-arrow side left-arrow" type="button" aria-label="Previous image" onclick="prevImage()">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <div class="image-box main-box">
+              <img id="mainProjectImage" src="{{ projects[0].src }}" alt="{{ projects[0].alt }}"
+                   class="image-fit fade-in" loading="eager" />
+            </div>
+            <button class="nav-arrow side right-arrow" type="button" aria-label="Next image" onclick="nextImage()">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+
+          <div class="thumbnail-gallery d-flex flex-wrap justify-content-center mt-3" id="projectThumbs"
+               data-aos="fade-up" data-aos-duration="700" data-aos-delay="80">
+            {% for p in projects %}
+            <button class="thumb-box {{ loop.first ? 'active' : '' }}" type="button"
+                    onclick="changeProjectImage(this)" data-index="{{ loop.index0 }}"
+                    data-src="{{ p.src }}" data-alt="{{ p.alt }}"
+                    data-aos="fade-up" data-aos-duration="500" data-aos-delay="{{ 60 * loop.index0 }}">
+              <img src="{{ p.src }}" alt="{{ p.alt }}" class="image-fit" loading="lazy" decoding="async">
+            </button>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="space32"></div>
+
+    {# ===================== 3) CONTENT + RIGHT SIDEBAR ===================== #}
+    <div class="row gy-4">
+      <!-- LEFT CONTENT -->
+      <div class="col-lg-8" data-aos="fade-right" data-aos-duration="700">
+        <h3 class="fw-bolder mb-3">Premium Roofing Tiles</h3>
+        <p>
+          Our roofing tiles combine enduring performance with rich, architectural finishes.
+          They’re engineered for harsh climates and designed to keep colour and character for years.
+        </p>
+        <p>
+          Use them across villas, resorts, heritage restorations, and modern developments to
+          achieve a distinctive, long-lasting roofscape with clean alignment and minimal upkeep.
+        </p>
+
+        <h3 class="fw-bolder mt-4 mb-3" data-aos="fade-up" data-aos-duration="700">Features & Benefits</h3>
+
+        <h5 class="fw-bolder" data-aos="fade-up" data-aos-duration="700" data-aos-delay="60">Quality</h5>
+        <p data-aos="fade-up" data-aos-duration="700" data-aos-delay="120">
+          We understand the importance of a reliable and long-lastingroof. That's why every tile from GATE EIGHT
+          undergoes rigorous quality assurance processes.Our commitment to delivering top-notch products is
+          unwavering, ensuring your investment in our roofing tiles is a testament to quality and durability
+        </p> 
+        
+        <br/>
+
+        <ul class="list-unstyled">
+          <li data-aos="fade-up" data-aos-duration="600"><i class="fa-solid fa-check"></i> Global Elegance: Tiles from Italy, Portugal, Saudi Arabia, and Spain</li>
+          <li data-aos="fade-up" data-aos-duration="600" data-aos-delay="60"><i class="fa-solid fa-check"></i> Premium Quality: Craftsmanship and materials meet international standards.</li>
+          <li data-aos="fade-up" data-aos-duration="600" data-aos-delay="120"><i class="fa-solid fa-check"></i> Versatile Aesthetics: Diverse colours and styles for various architectural designs</li>
+          <li data-aos="fade-up" data-aos-duration="600" data-aos-delay="180"><i class="fa-solid fa-check"></i> Resilience: Built to withstand diverse climates</li>
+        </ul>
+
+      </div>
+
+      <!-- RIGHT SIDEBAR (Stone-style) -->
+      <div class="col-lg-4">
+        <div class="service-leftside">
+          <div class="helping-area" data-aos="zoom-in" data-aos-duration="700">
+            <h3>Need Assistance?</h3>
+            <div class="btn-area">
+              <a href="tel:+971528735686" class="header-btn1">
+                <i class="fa-solid fa-phone-volume"></i> +971 528735686
+              </a>
+            </div>
+          </div>
+
+          <div class="download-broucher" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="100">
+            <h3>Download Brochure</h3>
+            <p>Get detailed specs and finish options for all tile types.</p>
+            <div class="btn-area">
+              <a href="/brochures/granite.pdf" class="header-btn1">
+                <img src="/img/icons/download1.svg" alt=""> PDF Download
+              </a>
+            </div>
+          </div>
+
+          <div class="social-icons" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="180">
+            <h3>Follow Us</h3>
+            <ul>
+              <li><a href="https://www.facebook.com/p/Gate-Eight-Trading-LLC-61575302306470/"><i class="fa-brands fa-facebook-f"></i></a></li>
+              <li><a href="https://www.instagram.com/gateeightbm/"><i class="fa-brands fa-instagram"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div> <!-- /row -->
+
+  </div>
+</div>
+<!-- ===== PAGE BODY END ===== -->
+
+<!-- ===== SCRIPTS ===== -->
+<script>
+  /* Tiles grid: Load more */
+  (function () {
+    const btn = document.getElementById('loadMoreTiles');
+    if (!btn) return;
+    const hidden = () => Array.from(document.querySelectorAll('.tile-card.is-hidden'));
+    btn.addEventListener('click', () => {
+      hidden().slice(0, 12).forEach(el => el.classList.remove('is-hidden'));
+      if (hidden().length === 0) btn.remove();
+      if (window.AOS) requestAnimationFrame(() => AOS.refreshHard());
+    });
+  })();
+
+  /* Project gallery controls */
+  const projectThumbs = document.querySelectorAll('#projectThumbs .thumb-box');
+  let projectIndex = 0, swapping = false;
+
+  function swapProject(src, alt) {
+    if (swapping) return; swapping = true;
+    const img = document.getElementById('mainProjectImage');
+    const pre = new Image();
+    img.classList.remove('fade-in'); img.style.opacity = 0;
+    pre.onload = () => {
+      img.src = src; img.alt = alt || 'Project image';
+      requestAnimationFrame(() => {
+        img.classList.add('fade-in'); img.style.opacity = 1;
+        setTimeout(() => {
+          swapping = false;
+          if (window.AOS) AOS.refreshHard();
+        }, 350);
+      });
+    };
+    pre.src = src;
+  }
+  function changeProjectImage(el) {
+    const src = el.dataset.src, alt = el.dataset.alt;
+    projectIndex = parseInt(el.dataset.index, 10);
+    swapProject(src, alt);
+    projectThumbs.forEach(b => b.classList.remove('active')); el.classList.add('active');
+  }
+  function prevImage(){ projectIndex=(projectIndex-1+projectThumbs.length)%projectThumbs.length; changeProjectImage(projectThumbs[projectIndex]); }
+  function nextImage(){ projectIndex=(projectIndex+1)%projectThumbs.length; changeProjectImage(projectThumbs[projectIndex]); }
+  document.addEventListener('keydown', e => { if(e.key==='ArrowLeft') prevImage(); if(e.key==='ArrowRight') nextImage(); });
+</script>
+
+<!-- ===== STYLES ===== -->
+<style>
+  .space32 { height: 32px; }
+  .section-title { font-weight: 700; }
+
+  /* ====== Tiles grid ====== */
+  .tiles-grid { display: grid; grid-template-columns: repeat(10, 1fr); gap: 14px; }
+  @media (max-width: 1399.98px){ .tiles-grid{ grid-template-columns: repeat(8,1fr);} }
+  @media (max-width: 1199.98px){ .tiles-grid{ grid-template-columns: repeat(6,1fr);} }
+  @media (max-width: 991.98px) { .tiles-grid{ grid-template-columns: repeat(4,1fr);} }
+  @media (max-width: 767.98px) { .tiles-grid{ grid-template-columns: repeat(3,1fr);} }
+  @media (max-width: 575.98px) { .tiles-grid{ grid-template-columns: repeat(2,1fr);} }
+
+  .tile-card{
+    background:#fff; border-radius:12px; border:1px solid #eee; box-shadow:0 6px 14px rgba(0,0,0,.05);
+    padding:10px 10px 44px; position:relative; overflow:hidden; transition:transform .15s, box-shadow .15s;
+  }
+  .tile-card:hover{ transform:translateY(-2px); box-shadow:0 10px 20px rgba(0,0,0,.08);}
+  .tile-card.is-hidden{ display:none; }
+
+  .tile-image-wrap{
+    width:100%; aspect-ratio:3/4; background:linear-gradient(180deg,#fafafa,#f1f1f1);
+    border-radius:10px; display:grid; place-items:center; overflow:hidden; border:1px solid #eee;
+  }
+  .tile-image-wrap img{ width:88%; height:88%; object-fit:contain; display:block; }
+
+  .tile-name{
+    position:absolute; left:8px; right:8px; bottom:8px; background:#2b2b2b; color:#fff; font-weight:700; font-size:.8rem;
+    text-align:center; padding:8px 6px; border-radius:10px; text-transform:uppercase; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+  }
+
+  /* ====== Gallery ====== */
+  .product-gallery.fixed-sizes{ text-align:center; width:100%; }
+  .main-frame{ position:relative; display:block; max-width:var(--main-max-width); margin:0 auto; }
+  .image-box.main-box{ width:100%; aspect-ratio:var(--main-ratio); background:#f7f7f7; border-radius:12px; overflow:hidden; box-shadow:0 14px 36px rgba(0,0,0,.12);}
+  .image-fit{ width:100%; height:100%; object-fit:cover; display:block; transition:opacity .35s ease; }
+  .fade-in{ animation:zoomFade .35s ease; }
+  @keyframes zoomFade{ from{opacity:0; transform:scale(.985);} to{opacity:1; transform:scale(1);} }
+  .thumbnail-gallery{ gap:var(--gap); width:100%; }
+  .thumb-box{ width:var(--thumb-size); height:var(--thumb-size); border:2px solid transparent; border-radius:8px; overflow:hidden; cursor:pointer; padding:0; background:#fff;
+              box-shadow:0 4px 10px rgba(0,0,0,.06); transition:transform .15s, border-color .15s; }
+  .thumb-box:hover{ transform:translateY(-2px); }
+  .thumb-box.active, .thumb-box:focus{ border-color:#e41e26; outline:none; }
+  .nav-arrow.side{ position:absolute; top:50%; transform:translateY(-50%); background:rgba(255,255,255,.95); border:0; border-radius:50%; width:44px; height:44px;
+                   box-shadow:0 6px 16px rgba(0,0,0,.2); cursor:pointer; transition:background .2s, transform .2s, color .2s; display:flex; align-items:center; justify-content:center; z-index:3; }
+  .left-arrow{ left:var(--arrow-inset); } .right-arrow{ right:var(--arrow-inset); }
+  .nav-arrow.side:hover{ background:#e41e26; color:#fff; transform:translateY(-50%) scale(1.08); }
+
+  /* ====== Footer spacing ====== */
+  .service-leftside-area.sp8 { padding-bottom: 66px; }
+  @media (max-width: 991.98px) { .service-leftside-area.sp8 { padding-bottom: 72px; } }
+  @media (max-width: 575.98px) { .service-leftside-area.sp8 { padding-bottom: 56px; } }
+</style>
+{% endblock %}
+
+{% block javascripts %}
+  {{ parent() }}
+  {# Remove if your base already includes AOS #}
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      AOS.init({
+        duration: 800,
+        once: true,
+        offset: 80,
+        easing: 'ease-out-cubic'
+      });
+      // second pass after images/fonts settle
+      setTimeout(() => AOS.refresh(), 400);
+    });
+  </script>
+{% endblock %}

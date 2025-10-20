@@ -1,17 +1,24 @@
 {% extends 'layouts/landing.html.twig' %}
 
+{# If your base layout has these blocks, great.
+   If not, move the <link>/<script> to your base once. #}
+{% block stylesheets %}
+  {{ parent() }}
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+{% endblock %}
+
 {% block content %}
 <!-- ===== HERO AREA START ===== -->
-<div class="hero1-section-area about-bg-area">
-  <img src="/img/bg/header-img1.png" alt="" class="header-img1" />
+<div class="hero1-section-area about-bg-area" data-aos="fade-up" data-aos-duration="800">
+  <img src="/img/bg/sr7.jpeg" alt="" class="header-img1" />
   <div class="container">
     <div class="row">
       <div class="col-lg-7 m-auto">
         <div class="hero-heading-area heading1 text-center">
-          <h1>Granite Tiles</h1>
-          <a href="index" class="backline">
+          <h1 data-aos="zoom-out" data-aos-duration="900">Skin Rock</h1>
+          <a href="index" class="backline" data-aos="fade-up" data-aos-duration="900" data-aos-delay="100">
             Home <i class="fa-solid fa-angle-right"></i> Products
-            <i class="fa-solid fa-angle-right"></i> <span>Granite Tiles</span>
+            <i class="fa-solid fa-angle-right"></i> <span>Skin Rock</span>
           </a>
         </div>
       </div>
@@ -23,83 +30,108 @@
 <!-- ===== PRODUCT AREA START ===== -->
 <div class="service-leftside-area sp8">
   <div class="container">
+
+    {# ===== ROW 1: CENTERED GALLERY ONLY ===== #}
     <div class="row">
-      <!-- ==== MAIN PRODUCT SECTION ==== -->
-      <div class="col-lg-8">
-        <div class="service-rightside-area heading2">
-          <!-- Gallery -->
-          <div class="product-gallery">
-            <div class="main-image text-center">
-              <img id="mainProductImage" src="/img/all-images/granite1.jpg" alt="Granite Tile" class="img-fluid rounded shadow" />
+      <div class="col-12 d-flex justify-content-center">
+        <div class="product-gallery fixed-sizes"
+             style="
+               --main-max-width: 980px;   /* gallery width cap */
+               --main-ratio: 16/9;        /* gallery aspect ratio */
+               --thumb-size: 72px;        /* square thumbs */
+               --gap: 10px;
+               --arrow-inset: 14px;       /* arrow distance from image edge */
+               --sidebar-offset: 18px;    /* pushes sidebar down in next row */
+             ">
+
+          <div class="main-frame" data-aos="zoom-in" data-aos-duration="800">
+            <!-- Left arrow -->
+            <button class="nav-arrow side left-arrow" type="button" aria-label="Previous image" onclick="prevImage()">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+
+            <!-- Main image -->
+            <div class="image-box main-box">
+              <img id="mainProductImage"
+                   src="/img/all-images/sr9.jpeg"
+                   alt="Skin Rock 1"
+                   class="image-fit fade-in"
+                   loading="eager" />
             </div>
-            <div class="thumbnail-gallery d-flex justify-content-center mt-3">
-              <img src="/img/all-images/granite1.jpg" class="thumb active" onclick="changeImage(this)" alt="">
-              <img src="/img/all-images/granite2.jpg" class="thumb" onclick="changeImage(this)" alt="">
-              <img src="/img/all-images/granite3.jpg" class="thumb" onclick="changeImage(this)" alt="">
-              <img src="/img/all-images/granite4.jpg" class="thumb" onclick="changeImage(this)" alt="">
-            </div>
+
+            <!-- Right arrow -->
+            <button class="nav-arrow side right-arrow" type="button" aria-label="Next image" onclick="nextImage()">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
           </div>
 
-          <div class="space32"></div>
+          <!-- Thumbnails -->
+          <div class="thumbnail-gallery d-flex flex-wrap justify-content-center mt-3" id="thumbs"
+               data-aos="fade-up" data-aos-duration="700" data-aos-delay="50">
+            {% set imgs = [
+              {'src':'/img/all-images/sr7.jpeg','alt':'Skin Rock 1'},
+              {'src':'/img/all-images/sr8.jpeg','alt':'Skin Rock 2'},
+              {'src':'/img/all-images/sr9.jpeg','alt':'Skin Rock 3'},
+              {'src':'/img/all-images/sr1.jpeg','alt':'Skin Rock 4'},
+              {'src':'/img/all-images/sr2.jpeg','alt':'Skin Rock 5'},
+              {'src':'/img/all-images/sr3.jpeg','alt':'Skin Rock 6'},
+              {'src':'/img/all-images/sr4.jpeg','alt':'Skin Rock 7'},
+              {'src':'/img/all-images/sr5.jpeg','alt':'Skin Rock 8'}
+            ] %}
 
-          <!-- Description -->
-          <h3>Premium Granite Tiles</h3>
-          <p>
-            Our granite tiles are engineered for durability and elegance. Perfect for driveways, pathways, and modern interiors, 
-            each tile is crafted with precision and available in multiple finishes and patterns.
-          </p>
-          <p>
-            Choose from a variety of shades and surface textures to complement your project’s design aesthetic.
-            These tiles combine the natural strength of granite with superior visual appeal.
-          </p>
-
-          <!-- Size Table -->
-          <div class="space32"></div>
-          <h3>Available Sizes</h3>
-          <div class="table-responsive">
-            <table class="table table-bordered text-center size-table">
-              <thead style="background-color:#e41e26;color:#fff;">
-                <tr>
-                  <th>Length x Width (CM)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr><td>60 x 120 x 3</td></tr>
-                <tr><td>50 x 100 x 3</td></tr>
-                <tr><td>60 x 60 x 3</td></tr>
-                <tr><td>40 x 60 x 3</td></tr>
-                <tr><td>40 x 40 x 3</td></tr>
-              </tbody>
-            </table>
+            {% for im in imgs %}
+            <button class="thumb-box {{ loop.index0 == 2 ? 'active' : '' }}" type="button"
+                    onclick="changeImage(this)"
+                    data-index="{{ loop.index0 }}"
+                    data-src="{{ im.src }}" data-alt="{{ im.alt }}"
+                    data-aos="fade-up" data-aos-duration="500" data-aos-delay="{{ 60 * loop.index0 }}">
+              <img src="{{ im.src }}" alt="{{ im.alt }}" class="image-fit" loading="lazy">
+            </button>
+            {% endfor %}
           </div>
-
-          <!-- Features -->
-          <div class="space32"></div>
-          <h3>Features & Benefits</h3>
-          <ul class="list-unstyled">
-            <li><i class="fa-solid fa-check"></i> Long-lasting shine and strength</li>
-            <li><i class="fa-solid fa-check"></i> Scratch and weather resistant</li>
-            <li><i class="fa-solid fa-check"></i> Easy to clean and maintain</li>
-            <li><i class="fa-solid fa-check"></i> Suitable for indoor and outdoor use</li>
-          </ul>
         </div>
       </div>
+    </div>
+
+    <!-- spacing after gallery -->
+    <div class="space32"></div>
+
+    {# ===== ROW 2: CONTENT + SIDEBAR (SIDEBAR STARTS LOWER) ===== #}
+    <div class="row">
+   
+    <!-- ==== MAIN CONTENT ==== -->
+    <div class="col-lg-8">
+      <div class="service-rightside-area heading2">
+        <h3 data-aos="fade-right" data-aos-duration="700">Premium Skin Rock</h3>
+        <p data-aos="fade-right" data-aos-duration="700" data-aos-delay="100">
+          Elevate your exterior and interior designs with our Premium Skin Rock collection — 
+          a perfect balance of natural stone character and refined craftsmanship. 
+          Each panel is carefully processed to preserve the authentic grain and texture of real stone 
+          while offering a lightweight and versatile solution for modern architectural applications.
+        </p>
+        <p data-aos="fade-right" data-aos-duration="700" data-aos-delay="150">
+          Ideal for façades, boundary walls, feature panels, and landscape projects, 
+          Skin Rock delivers exceptional durability, UV and moisture resistance, 
+          and a timeless organic finish. Available in multiple shades and patterns, 
+          it enhances every surface with natural depth and contemporary elegance.
+        </p>
+
+        <div class="space32"></div>
+        <h3 data-aos="fade-right" data-aos-duration="700">Features & Benefits</h3>
+        <ul class="list-unstyled">
+          <li data-aos="fade-up" data-aos-duration="600"><i class="fa-solid fa-check"></i> Natural stone texture with lightweight, easy-to-install design</li>
+          <li data-aos="fade-up" data-aos-duration="600" data-aos-delay="50"><i class="fa-solid fa-check"></i> UV-resistant and weather-proof finish for long-term performance</li>
+          <li data-aos="fade-up" data-aos-duration="600" data-aos-delay="100"><i class="fa-solid fa-check"></i> Ideal for façades, landscape walls, and feature accents</li>
+          <li data-aos="fade-up" data-aos-duration="600" data-aos-delay="150"><i class="fa-solid fa-check"></i> Available in multiple tones and patterns for versatile design options</li>
+          <li data-aos="fade-up" data-aos-duration="600" data-aos-delay="200"><i class="fa-solid fa-check"></i> Low maintenance and resistant to stains, cracks, and discoloration</li>
+        </ul>
+      </div>
+    </div>
 
       <!-- ==== SIDEBAR ==== -->
       <div class="col-lg-4">
-        <div class="service-leftside">
-          <div class="service-author-list">
-            <h3>Other Interlock Shapes</h3>
-            <ul>
-              <li><a href="rectangle" class="shape-link">Rectangle <i class="fa-solid fa-arrow-right"></i></a></li>
-              <li><a href="square" class="shape-link">Square <i class="fa-solid fa-arrow-right"></i></a></li>
-              <li><a href="classico" class="shape-link">Classico <i class="fa-solid fa-arrow-right"></i></a></li>
-              <li><a href="hexagon" class="shape-link">Hexagon <i class="fa-solid fa-arrow-right"></i></a></li>
-              <li><a href="wave" class="shape-link">Wave <i class="fa-solid fa-arrow-right"></i></a></li>
-            </ul>
-          </div>
-
-          <div class="helping-area">
+        <div class="service-leftside sidebar-offset">
+          <div class="helping-area" data-aos="zoom-in" data-aos-duration="700">
             <h3>Need Assistance?</h3>
             <div class="btn-area">
               <a href="tel:+971528735686" class="header-btn1">
@@ -108,61 +140,209 @@
             </div>
           </div>
 
-          <div class="download-broucher">
+          <div class="download-broucher" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="100">
             <h3>Download Brochure</h3>
             <p>Get detailed specs and finish options for all tile types.</p>
             <div class="btn-area">
               <a href="/brochures/granite.pdf" class="header-btn1">
                 <img src="/img/icons/download1.svg" alt=""> PDF Download
               </a>
-              <a href="/brochures/granite.docx" class="header-btn2">
-                <img src="/img/icons/download1.svg" alt=""> DOC Download
-              </a>
             </div>
           </div>
 
-          <div class="social-icons">
+          <div class="social-icons" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="200">
             <h3>Follow Us</h3>
             <ul>
-              <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-              <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-              <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
-              <li><a href="#"><i class="fa-brands fa-pinterest-p"></i></a></li>
+              <li><a href="https://www.facebook.com/p/Gate-Eight-Trading-LLC-61575302306470/"><i class="fa-brands fa-facebook-f"></i></a></li>
+              <li><a href="https://www.instagram.com/gateeightbm/"><i class="fa-brands fa-instagram"></i></a></li>
             </ul>
           </div>
         </div>
       </div>
-    </div>
+    </div> <!-- /row 2 -->
+
   </div>
 </div>
 <!-- ===== PRODUCT AREA END ===== -->
 
-<!-- ===== JS: Dynamic Image Change ===== -->
+<!-- ===== JS: Dynamic Image Change + Animation glue ===== -->
 <script>
+  // thumbs are available because script is at the bottom
+  const thumbs = document.querySelectorAll('.thumb-box');
+  let currentIndex = 2; // we made sr9 active by default above
+
+  function swapMain(src, alt) {
+    const img = document.getElementById('mainProductImage');
+    const pre = new Image();
+
+    img.classList.remove('fade-in');
+    img.style.opacity = 0;
+
+    pre.onload = () => {
+      img.src = src;
+      img.alt = alt || 'Product image';
+      requestAnimationFrame(() => {
+        img.classList.add('fade-in');
+        img.style.opacity = 1;
+        if (window.AOS) AOS.refreshHard(); // recalc after dimension/position changes
+      });
+    };
+    pre.src = src;
+  }
+
   function changeImage(el) {
-    document.getElementById('mainProductImage').src = el.src;
-    document.querySelectorAll('.thumb').forEach(img => img.classList.remove('active'));
+    const src = el.getAttribute('data-src');
+    const alt = el.getAttribute('data-alt');
+    currentIndex = parseInt(el.getAttribute('data-index'), 10);
+    swapMain(src, alt);
+    thumbs.forEach(b => b.classList.remove('active'));
     el.classList.add('active');
   }
+
+  function prevImage() {
+    currentIndex = (currentIndex - 1 + thumbs.length) % thumbs.length;
+    changeImage(thumbs[currentIndex]);
+  }
+
+  function nextImage() {
+    currentIndex = (currentIndex + 1) % thumbs.length;
+    changeImage(thumbs[currentIndex]);
+  }
+
+  // Keyboard navigation (optional)
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') prevImage();
+    if (e.key === 'ArrowRight') nextImage();
+  });
+
+  // Safety refresh when all assets settle
+  window.addEventListener('load', () => { if (window.AOS) AOS.refresh(); });
 </script>
 
 <style>
-  .thumb {
-    width: 70px;
-    height: 70px;
-    margin: 0 6px;
+  /* ===== CENTERED GALLERY SETTINGS ===== */
+  .product-gallery.fixed-sizes {
+    --main-max-width: 980px;
+    --main-ratio: 16/9;
+    --thumb-size: 72px;
+    --gap: 10px;
+    --arrow-inset: 14px;
+    --sidebar-offset: 18px; /* move sidebar down a little */
+    width: 100%;
+    text-align: center;
+  }
+
+  .main-frame {
+    position: relative;
+    display: block;
+    max-width: var(--main-max-width);
+    margin: 0 auto;
+  }
+
+  .image-box.main-box {
+    width: 100%;
+    aspect-ratio: var(--main-ratio);
+    background: #f7f7f7;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 14px 36px rgba(0,0,0,.12);
+  }
+
+  .image-fit { width: 100%; height: 100%; object-fit: cover; display: block; transition: opacity .35s ease; }
+
+  .fade-in { animation: zoomFade .35s ease; }
+  @keyframes zoomFade {
+    from { opacity: 0; transform: scale(.985); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+
+  .thumbnail-gallery { gap: var(--gap); width: 100%; }
+  .thumb-box {
+    width: var(--thumb-size);
+    height: var(--thumb-size);
     border: 2px solid transparent;
+    border-radius: 8px;
+    overflow: hidden;
     cursor: pointer;
-    border-radius: 5px;
-    object-fit: cover;
-    transition: 0.3s;
+    padding: 0;
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,.06);
+    transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
   }
-  .thumb.active, .thumb:hover {
-    border-color: #e41e26;
-    transform: scale(1.05);
+  .thumb-box:hover { transform: translateY(-2px); }
+  .thumb-box.active, .thumb-box:focus { border-color: #e41e26; outline: none; }
+
+  /* ===== SIDE ARROWS (centered on image sides) ===== */
+  .nav-arrow.side {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.95);
+    border: none;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.20);
+    cursor: pointer;
+    transition: background .2s ease, transform .2s ease, color .2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
   }
-  .size-table td, .size-table th {
-    font-weight: 600;
+  .left-arrow  { left:  var(--arrow-inset); }
+  .right-arrow { right: var(--arrow-inset); }
+  .nav-arrow.side:hover { background: #e41e26; color: #fff; transform: translateY(-50%) scale(1.08); }
+
+  /* ===== SIDEBAR OFFSET BELOW GALLERY ===== */
+  .sidebar-offset { margin-top: var(--sidebar-offset); }
+
+  /* more room before the footer */
+  .service-leftside-area.sp8 {
+    padding-bottom: 66px;   /* was too small/none */
+  }
+  @media (max-width: 991.98px) {
+    .service-leftside-area.sp8 { padding-bottom: 72px; }
+  }
+  @media (max-width: 575.98px) {
+   .service-leftside-area.sp8 { padding-bottom: 56px; }
+  }
+
+  /* Tablet */
+  @media (max-width: 991.98px) {
+    .product-gallery.fixed-sizes {
+      --main-max-width: 820px;
+      --thumb-size: 64px;
+      --arrow-inset: 12px;
+      --sidebar-offset: 12px;
+    }
+  }
+  /* Mobile */
+  @media (max-width: 575.98px) {
+    .product-gallery.fixed-sizes {
+      --main-max-width: 100%;
+      --main-ratio: 16/9;
+      --thumb-size: 56px;
+      --gap: 8px;
+      --arrow-inset: 10px;
+      --sidebar-offset: 8px;
+    }
   }
 </style>
+{% endblock %}
+
+{% block javascripts %}
+  {{ parent() }}
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      AOS.init({
+        duration: 800,
+        once: true,
+        offset: 80,
+        easing: 'ease-out-cubic'
+      });
+      setTimeout(() => AOS.refresh(), 400);
+    });
+  </script>
 {% endblock %}

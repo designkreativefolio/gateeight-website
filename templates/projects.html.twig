@@ -1,0 +1,182 @@
+{% extends 'layouts/landing.html.twig' %}
+
+{% block content %}
+<!-- ===== HERO ===== -->
+<div class="hero1-section-area about-bg-area ani-reveal" data-ani="fade-up" data-delay="0">
+  <img src="/img/bg/project-bg.webp" alt="" class="header-img1" />
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-7 m-auto">
+        <div class="hero-heading-area heading1 text-center">
+          <h1 class="ani-reveal" data-ani="zoom-in" data-delay="80">Projects</h1>
+          <a href="index" class="backline ani-reveal" data-ani="fade-up" data-delay="140">
+            Home <i class="fa-solid fa-angle-right"></i> <span>Portfolio</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== INTRO SECTION (SEO-OPTIMIZED) ===== -->
+<section class="project-intro-section">
+  <div class="container text-center">
+    <h2 class="intro-heading ani-reveal" data-ani="fade-up" data-delay="0">Gate Eight Projects Works in the UAE</h2>
+    <p class="intro-subtext ani-reveal" data-ani="fade-up" data-delay="80">
+      Gate Eight Trading LLC showcases a diverse portfolio of premium <strong>roofing tiles</strong>,
+      <strong>architectural stone facades</strong>, and <strong>landscape paving solutions</strong>
+      supplied across villas, commercial complexes, and urban developments throughout
+      <strong>Dubai, Sharjah, and Abu Dhabi</strong>. Our projects highlight sustainable construction,
+      precision installation, and long-term material durability trusted by architects and developers.
+    </p>
+    <p class="intro-subtext ani-reveal" data-ani="fade-up" data-delay="140">
+      Each <strong>Gate Eight project</strong> reflects our commitment to combining
+      aesthetics with structural integrity — delivering superior finishes, climate-ready surfaces,
+      and modern designs that define the region’s leading <strong>building materials brand in the UAE</strong>.
+    </p>
+  </div>
+</section>
+
+<!-- ===== PORTFOLIO GRID (3 PER ROW) ===== -->
+<div class="portfolio-stack-wrap">
+  {% set projects = [
+    {'title':'Villa Roofing','img':'/img/all-images/proj1.jpg','href':'#'},
+    {'title':'Villa Interlocking','img':'/img/all-images/proj2.png','href':'#'},
+    {'title':'Rest Area','img':'/img/all-images/proj3.png','href':'#'},
+    {'title':'Commercial Complex','img':'/img/all-images/proj1.webp','href':'#'},
+    {'title':'Urban Landscape','img':'/img/all-images/proj2.png','href':'#'},
+    {'title':'Resort Pathway','img':'/img/all-images/proj3.png','href':'#'}
+  ] %}
+
+  <div class="container">
+    <div class="row g-4">
+      {% for p in projects %}
+        <div class="col-lg-4 col-md-6 ani-reveal" data-ani="fade-up" data-delay="{{ loop.index0 * 80 }}">
+          <a class="project-card" href="{{ p.href|default('#') }}" aria-label="{{ p.title }}">
+            <figure class="project-figure">
+              <img
+                src="{{ p.img }}"
+                alt="{{ p.title }}"
+                class="project-image"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="project-caption">{{ p.title }}</figcaption>
+            </figure>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<!-- ===== STYLES ===== -->
+<style>
+  .portfolio-stack-wrap { padding: 56px 0 72px; }
+
+  .project-card {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 8px 18px rgba(0,0,0,.1);
+    transition: transform .3s ease, box-shadow .3s ease;
+  }
+  .project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0,0,0,.15);
+  }
+  .project-figure { margin: 0; position: relative; }
+  .project-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+    transition: transform .4s ease, opacity .4s ease;
+  }
+  .project-card:hover .project-image {
+    transform: scale(1.03);
+    opacity: 0.95;
+  }
+
+  .project-caption {
+    position: absolute;
+    bottom: 16px;
+    left: 20px;
+    color: #fff;
+    font-weight: 700;
+    text-transform: capitalize;
+    font-size: 1.2rem;
+    text-shadow: 0 2px 8px rgba(0,0,0,.4);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all .35s ease;
+  }
+  .project-card:hover .project-caption {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 991.98px) {
+    .project-image { height: 260px; }
+  }
+  @media (max-width: 575.98px) {
+    .project-image { height: 220px; }
+  }
+
+  /* ===== Intro Section ===== */
+  .project-intro-section {
+    padding: 64px 0 40px;
+    border-bottom: 1px solid #eee;
+  }
+  .intro-heading {
+    font-weight: 800;
+    text-transform: none;
+    font-size: clamp(24px, 2vw + 12px, 42px);
+    color: #222;
+    margin-bottom: 18px;
+  }
+  .intro-subtext {
+    max-width: 1200px;
+    margin: 0 auto 12px;
+    font-size: 17px;
+    line-height: 1.75;
+    color: #555;
+  }
+  @media (max-width: 768px) {
+    .project-intro-section { padding: 48px 0 32px; }
+    .intro-subtext { font-size: 15.5px; }
+  }
+
+  /* ===== Scroll Animations ===== */
+  .ani-reveal { opacity:0; transform:translateY(24px); will-change:transform, opacity; }
+  .ani-reveal.is-inview { opacity:1; transform:none; transition:opacity .7s ease, transform .7s cubic-bezier(.22,.8,.26,.99); }
+  .ani-reveal[data-ani="fade-up"] { transform:translateY(28px); }
+  .ani-reveal[data-ani="fade"] { transform:none; }
+  .ani-reveal[data-ani="zoom-in"] { transform:scale(.96); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .project-image, .ani-reveal { transition:none !important; transform:none !important; opacity:1 !important; }
+  }
+</style>
+
+<!-- ===== SCRIPT: SCROLL REVEAL ===== -->
+<script>
+  (function() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const revealEls = document.querySelectorAll('.ani-reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const delay = parseInt(el.getAttribute('data-delay') || '0', 10);
+          el.style.transitionDelay = (delay/1000) + 's';
+          el.classList.add('is-inview');
+          io.unobserve(el);
+        }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.15 });
+    revealEls.forEach(el => io.observe(el));
+  })();
+</script>
+{% endblock %}
