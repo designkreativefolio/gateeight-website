@@ -3,7 +3,7 @@
 {% block content %}
   <!-- ===== HERO AREA STARTS ======= -->
   <div class="hero1-section-area about-bg-area">
-    <img src="/img/bg/header-img1.jpg" alt="" class="header-img1" />
+    <img src="/img/bg/contact-bg.png" alt="" class="header-img1" />
     <div class="container">
       <div class="row">
         <div class="col-lg-8 m-auto">
@@ -100,19 +100,14 @@
             <h4>Request A Quote</h4>
 
             <form action="https://api.web3forms.com/submit" method="POST" class="quote-form" novalidate>
-              <!-- REQUIRED -->
               <input type="hidden" name="access_key" value="b7fa934a-8f54-48ac-a56d-58b4070441f0">
-              <!-- Success redirect -->
               <input type="hidden" name="redirect" value="https://demo.gate8bm.com/thankyou">
-              <!-- Email/meta -->
               <input type="hidden" name="from_name" value="Gate Eight Website">
               <input type="hidden" name="subject" value="Request A Quote – Contact Section">
               <input type="hidden" name="replyto" value="email">
-              <!-- Traceability (helps you know where it came from) -->
               <input type="hidden" name="form_source" value="Contact Page">
               <input type="hidden" name="page_url" value="https://demo.gate8bm.com/">
-              <!-- Honeypot -->
-              <input type="checkbox" name="botcheck" style="display:none !important" tabindex="-1" autocomplete="off">
+              <input type="checkbox" name="botcheck" style="display:none!important" tabindex="-1" autocomplete="off">
 
               <div class="row">
                 <div class="col-lg-6">
@@ -162,7 +157,9 @@
 
           </div>
         </div>
-
+      </div> <!-- /row -->
+    </div>   <!-- /container -->
+  </div>     <!-- /contact1-section-area -->
   <!-- ===== CONTACT AREA ENDS ======= -->
 
   <!-- ===== MAP AREA ======= -->

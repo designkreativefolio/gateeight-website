@@ -1,22 +1,23 @@
 {% extends 'layouts/landing.html.twig' %}
 
 {% block content %}
-<!-- ===== HERO ===== -->
-<div class="hero1-section-area about-bg-area ani-reveal" data-ani="fade-up" data-delay="0">
-  <img src="/img/bg/project-bg.webp" alt="" class="header-img1" />
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-7 m-auto">
-        <div class="hero-heading-area heading1 text-center">
-          <h1 class="ani-reveal" data-ani="zoom-in" data-delay="80">Projects</h1>
-          <a href="index" class="backline ani-reveal" data-ani="fade-up" data-delay="140">
-            Home <i class="fa-solid fa-angle-right"></i> <span>Portfolio</span>
-          </a>
+  <!-- ===== HERO AREA STARTS ======= -->
+  <div class="hero1-section-area about-bg-area">
+    <img src="/img/bg/project-bg.webp" alt="" class="header-img1" />
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 m-auto">
+          <div class="hero-heading-area heading1 text-center">
+            <h1>Projects</h1>
+            <a href="index" class="backline">
+              Home <i class="fa-solid fa-angle-right"></i> <span>Projects</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+  <!-- ===== HERO AREA ENDS ======= -->
 
 <!-- ===== INTRO SECTION (SEO-OPTIMIZED) ===== -->
 <section class="project-intro-section">
@@ -86,6 +87,8 @@
     transform: translateY(-4px);
     box-shadow: 0 12px 28px rgba(0,0,0,.15);
   }
+
+
   .project-figure { margin: 0; position: relative; }
   .project-image {
     width: 100%;
