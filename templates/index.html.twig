@@ -1112,25 +1112,38 @@
       <div class="col-lg-6">
         <div class="contact-submit-boxarea">
           <h4>Request A Quote</h4>
-          <form action="https://api.web3forms.com/submit" method="POST">
-            <input type="hidden" name="access_key" value="0cd32fff-eda2-4da3-be43-37d47fbb396b" />
+          <form action="https://api.web3forms.com/submit" method="POST" class="quote-form">
+            <!-- Required -->
+            <input type="hidden" name="access_key" value="b7fa934a-8f54-48ac-a56d-58b4070441f0">
+            <!-- Where to send user after success -->
+            <input type="hidden" name="redirect" value="https://demo.gate8bm.com/thankyou">
+            <!-- Email meta -->
+            <input type="hidden" name="from_name" value="Gate Eight Website">
+            <input type="hidden" name="subject" value="Request A Quote – Home Page">
+            <input type="hidden" name="replyto" value="email">
+            <!-- Traceability -->
+            <input type="hidden" name="form_source" value="Homepage">
+            <input type="hidden" name="page_url" value="https://demo.gate8bm.com/">
+            <!-- Honeypot (leave empty) -->
+            <input type="checkbox" name="botcheck" class="hidden" style="display:none !important">
+
             <div class="row">
               <div class="col-lg-6">
                 <div class="input-area">
                   <p>Name (required)</p>
-                  <input type="text" name="name" placeholder="Name" required />
+                  <input type="text" name="name" placeholder="Name" required>
                 </div>
               </div>
               <div class="col-lg-6">
                 <div class="input-area">
                   <p>Number (required)</p>
-                  <input type="tel" name="phone" placeholder="Phone" required />
+                  <input type="tel" name="phone" placeholder="Phone" required>
                 </div>
               </div>
               <div class="col-lg-12">
                 <div class="input-area">
                   <p>Email (required)</p>
-                  <input type="email" name="email" placeholder="Email" required />
+                  <input type="email" name="email" placeholder="Email" required>
                 </div>
               </div>
               <div class="col-lg-12">
@@ -1141,7 +1154,7 @@
               </div>
               <div class="col-lg-12">
                 <div class="input-area1">
-                  <input type="checkbox" required />
+                  <input type="checkbox" required>
                   <p>I agree with the site privacy policy</p>
                 </div>
               </div>
@@ -1152,8 +1165,9 @@
                   </button>
                 </div>
               </div>
-            </div><!-- /row -->
+            </div>
           </form>
+
         </div>
       </div>
     </div>
